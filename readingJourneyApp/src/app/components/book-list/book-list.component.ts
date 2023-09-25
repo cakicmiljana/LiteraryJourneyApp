@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
 import { AppState } from 'src/app/store/book.reducer';
-import { Observable, of, tap, map } from 'rxjs'
+import { Observable, of, tap } from 'rxjs'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 
 @Component({
@@ -12,9 +12,10 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent {
+  @Input() books: Book[] | null = null;
   book$: Observable<Book[]> = of([]);
   selectedBook: number = 0;
-  isDropdownOpen: boolean = false;
+  @Output() isDropdownOpen: boolean = false;
   
   booksDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;

@@ -1,0 +1,6 @@
+<h3>Select a theme:</h3>
+<div *ngFor="let theme of theme$ | async"> 
+    <ul>
+        <app-book-list [books]="theme.books"></app-book-list>
+    </ul>
+</div>
