@@ -1,7 +1,16 @@
-<h2> books </h2>
-<ul *ngFor="let book of books">
-    <li> 
-        <strong>Title:</strong> {{ book.title }}<br>
-        <strong>Author:</strong> {{ book.author }}
-    </li>
-</ul>
+<div class="book-dropdown-div" (click)="booksDropdown()">
+    <h2>gothic literature</h2>
+    <ng-container *ngIf="isDropdownOpen" > 
+
+        <ul *ngFor="let book of book$ | async">
+        <div class="book-item-div">
+                <img src="{{ book.coverPath }}" width="128" height="195"/>
+                <h3>{{ book.title }}</h3>
+                <h4> {{ book.author }}</h4>
+                <a href="{{book.externalLink}}">
+                    <button>Order Book</button>
+                </a>
+            </div>
+        </ul>
+    </ng-container>
+</div>

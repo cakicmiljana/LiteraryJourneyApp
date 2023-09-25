@@ -1,0 +1,33 @@
+h3, h4 {
+    margin: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    color: wheat;
+}
+
+.book-dropdown-div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background-image: url("../../../assets/gothic.jpg");
+}
+
+.book-item-div {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 320px;
+    position: relative;
+}
+
+.book-dropdown-div h2 {
+    display: block;
+    color: wheat;
+    padding: 5px;
+}
+
+button {
+    position: absolute;
+    bottom: 0;
+    background-color: antiquewhite;
+}

@@ -8,14 +8,7 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
-    books: [{"id": 0,
-    "title": "The Picture of Dorian Gray",
-    "author": "Oscar Wilde"}, 
-    {
-        "id": 1,
-        "title": "Wuthering Heights",
-        "author": "Emily Bronte"
-    }],
+    books: [],
     selectedBook: 0,
 }
 
