@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/internal/Observable';
+import { Book } from 'src/app/models/book';
+import { AppState } from 'src/app/store/book.reducer';
 
 @Component({
   selector: 'app-book',
@@ -7,4 +11,22 @@ import { Component } from '@angular/core';
 })
 export class BookComponent {
   
+  //book$: Observable<Book>;
+
+  private _book: Book | null = null;
+
+  constructor(private store: Store<AppState>) {
+    
+  }
+
+  ngOnInit(): void {
+    this.store.subscribe(state => {
+      
+    })
+  }
+
+  @Input()
+  set book(value: Book) {
+    this._book = value;
+  }
 }

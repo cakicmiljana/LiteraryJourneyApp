@@ -7,11 +7,13 @@ import { BookComponent } from './components/book/book.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http'
 import { booksReducer } from './store/book.reducer';
+import { BookListComponent } from './components/book-list/book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent
+    BookComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
