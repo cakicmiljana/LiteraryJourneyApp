@@ -13,12 +13,27 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 })
 export class BookListComponent {
   @Input() books: Book[] | null = null;
-  book$: Observable<Book[]> = of([]);
   selectedBook: number = 0;
   @Output() isDropdownOpen: boolean = false;
+  @Output() isBiographyOn: boolean = false;
   
-  booksDropdown() {
+  booksDropdown(event: Event) {
     this.isDropdownOpen = !this.isDropdownOpen;
+    event.stopPropagation();
+  }
+
+  preventClose(event: Event) {
+    event.stopPropagation();
+  }
+
+  biographyOverlay() {
+    this.isBiographyOn = !this.isBiographyOn;
+    if(this.isBiographyOn) {
+      document.getElementById("overlay")!.style.display = "block";
+    }
+    else {
+      document.getElementById("overlay")!.style.display = "none";
+    }
   }
 
   private _book: Book | null = null;
@@ -31,17 +46,6 @@ export class BookListComponent {
     this.store.subscribe(state => {
       this.selectedBook = state.selectedBook
     })
-    this.book$ = this.BooksService.getAll().pipe(
-      tap( books => {
-        return books.map(book => {
-          book.id,
-          book.title,
-          book.author,
-          this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink),
-          book.coverPath
-        })
-      })
-    );
   }
 
   @Input()

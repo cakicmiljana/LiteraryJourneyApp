@@ -1,12 +1,21 @@
-<div class="book-dropdown-div" (click)="booksDropdown()">
+<div class="book-dropdown-div" (click)="booksDropdown($event)">
     <h2>gothic literature</h2>
     <ng-container *ngIf="isDropdownOpen" > 
 
-        <ul *ngFor="let book of book$ | async">
-        <div class="book-item-div">
+        <ul *ngFor="let book of books">
+            <div class="book-item-div" (click)="preventClose($event)">
+                
+                <div id="overlay" (click)="biographyOverlay()"> 
+                    <img src="../../../assets/wilde.jpg" width="128">
+                </div>
+
                 <img src="{{ book.coverPath }}" width="128" height="195"/>
                 <h3>{{ book.title }}</h3>
-                <h4> {{ book.author }}</h4>
+                <h4 (click)="biographyOverlay()">
+                    <ng-container *ngIf="isBiographyOn">
+
+                    </ng-container>
+                    {{ book.author }}</h4>
                 <a href="{{book.externalLink}}" target="_blank">
                     <button>Order Book</button>
                 </a>
