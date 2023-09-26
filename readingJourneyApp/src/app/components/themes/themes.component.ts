@@ -1,7 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { Theme } from 'src/app/models/theme';
 import { Observable, of } from 'rxjs'
-import { ThemesService } from '../../../services/themes.service'
+import { ThemesService } from '../../services/themes.service'
 
 @Component({
   selector: 'app-themes',

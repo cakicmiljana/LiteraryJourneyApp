@@ -5,6 +5,7 @@ import { BooksService } from 'src/app/services/books.service';
 import { AppState } from 'src/app/store/book.reducer';
 import { Observable, of, tap } from 'rxjs'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
+import { Theme } from 'src/app/models/theme';
 
 @Component({
   selector: 'app-book-list',
@@ -13,6 +14,8 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 })
 export class BookListComponent {
   @Input() books: Book[] | null = null;
+  @Input() theme: Theme | null = null;
+  
   selectedBook: number = 0;
   @Output() isDropdownOpen: boolean = false;
   @Output() isBiographyOn: boolean = false;

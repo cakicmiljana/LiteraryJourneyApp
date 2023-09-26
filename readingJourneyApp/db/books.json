@@ -34,6 +34,7 @@
             "id": 0,
             "title": "Gothic Literature",
             "description": "Gothic fiction, sometimes called Gothic horror (primarily in the 20th century), is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
+            "imagePath": "../../../assets/gothic.jpg",
             "books": [
                     {
                         "id": 0,
@@ -66,37 +67,31 @@
                 ]
         },
         {
-            "id": 0,
-            "title": "Gothic Literature",
+            "id": 1,
+            "title": "Serbian Poetry",
             "description": "Gothic fiction, sometimes called Gothic horror (primarily in the 20th century), is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
+            "imagePath": "../../../assets/serbian.jpg",
             "books": [
                     {
-                        "id": 0,
-                        "title": "The Picture of Dorian Gray",
-                        "author": "Oscar Wilde",
-                        "externalLink": "https://www.amazon.com/s?k=The+Picture+of+Dorian+Gray&i=stripbooks&adid=082VK13VJJCZTQYGWWCZ&campaign=211041&creative=374001&tag=x_gr_bb_amazon-20&ref=x_gr_bb_amazon",
-                        "coverPath": "../../../assets/dorian-gray.jpg"
+                        "id": 4,
+                        "title": "Kora",
+                        "author": "Vasko Popa",
+                        "externalLink": "https://kontrastizdavastvo.rs/knjige/knjiga-kora-vasko-popa-27939",
+                        "coverPath": "../../../assets/kora.jpg"
                     },
                     {
-                        "id": 1,
-                        "title": "Wuthering Heights",
-                        "author": "Emily Bronte",
-                        "externalLink": "https://www.amazon.com/s?k=wuthering+heights&i=stripbooks-intl-ship&crid=JMMKNEX5FII&sprefix=wuth%2Cstripbooks-intl-ship%2C224&ref=nb_sb_ss_ts-doa-p_1_4",
-                        "coverPath": "../../../assets/wuthering-heights.jpg"
+                        "id": 5,
+                        "title": "Vatra i ništa",
+                        "author": "Branko Miljković",
+                        "externalLink": "https://www.delfi.rs/knjige/184892_vatra_i_nista_knjiga_delfi_knjizare.html",
+                        "coverPath": "../../../assets/vatrainista.jpg"
                     },
                     {
-                    "id": 2,
-                    "title": "Frankenstein",
-                    "author": "Mary Shelley",
-                    "externalLink": "https://www.amazon.com/s?k=Frankenstein&i=stripbooks&adid=082VK13VJJCZTQYGWWCZ&campaign=211041&creative=374001&tag=x_gr_bb_amazon-20&ref=x_gr_bb_amazon",
-                    "coverPath": "../../../assets/frankenstein.jpg"
-                    },
-                    {
-                        "id": 3,
-                        "title": "Jane Eyre",
-                        "author": "Charlotte Bronte",
-                        "externalLink": "https://www.amazon.com/s?k=jane+eyre&i=stripbooks-intl-ship&crid=2586UW4WYAVXA&sprefix=jane+eyre%2Cstripbooks-intl-ship%2C416&ref=nb_sb_noss_1",
-                        "coverPath": "../../../assets/eyre.jpg"
+                    "id": 6,
+                    "title": "Utopljene duše",
+                    "author": "Vladislav Petković Dis",
+                    "externalLink": "https://www.delfi.rs/knjige/autor/4843_vladislav_petkovic_dis_delfi_knjizare.html",
+                    "coverPath": "../../../assets/utopljene.jpg"
                     }
                 ]
         }

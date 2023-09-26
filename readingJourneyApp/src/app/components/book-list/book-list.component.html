@@ -1,7 +1,6 @@
-<div class="book-dropdown-div" (click)="booksDropdown($event)">
-    <h2>gothic literature</h2>
-    <ng-container *ngIf="isDropdownOpen" > 
-
+<div class="book-dropdown-div" style="background-image: url({{theme?.imagePath}}); background-size: cover;" (click)="booksDropdown($event)">
+    <h2>{{theme?.title}}</h2>
+    <ng-container *ngIf="isDropdownOpen" >
         <ul *ngFor="let book of books">
             <div class="book-item-div" (click)="preventClose($event)">
                 
