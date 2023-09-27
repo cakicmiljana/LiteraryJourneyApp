@@ -2,8 +2,13 @@
     <h2>Personal Information</h2>
     <h3>Username: {{user!.username}}</h3>
     <h3>Country/Region: {{user!.country}}</h3>
+    <button routerLink="/account/update">Update Account Information</button>
 </div>
 <br>
+
+
+
+
 <div class="current-journeys-div">
     <h2>Currently Reading</h2>
     <app-book-list [theme]="currentJourney$ | async" [books]="(currentJourney$ | async)!.books"></app-book-list>

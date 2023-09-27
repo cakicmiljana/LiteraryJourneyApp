@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent {
-  user: User | null = {
+  user: User = {
     "id": 0,
     "username": "greg",
     "password": "boo",
@@ -28,5 +28,12 @@ export class AccountComponent {
     this.currentJourney$ = this.ThemesService.getThemeById(1);
     this.completedJourney$ = this.ThemesService.getAllThemes();
     
+  }
+
+  UpdateAccountInfo() {
+    this.user = {
+      ...this.user,
+      "username": "new"
+    };
   }
 }

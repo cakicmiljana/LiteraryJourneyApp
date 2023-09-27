@@ -12,6 +12,8 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './components/account/account.component';
+import { AccountUpdateComponent } from './components/account-update/account-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AccountComponent } from './components/account/account.component';
     BookListComponent,
     ThemesComponent,
     MenuBarComponent,
-    AccountComponent
+    AccountComponent,
+    AccountUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { AccountComponent } from './components/account/account.component';
       autoPause: true,
       trace: false,
       traceLimit: 75,
-    })
+    }),
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
