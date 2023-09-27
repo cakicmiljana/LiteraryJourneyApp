@@ -1,4 +1,12 @@
 {
+    "users": [
+        {
+            "id": 0,
+            "username": "greg",
+            "password": "boo",
+            "country": "UK"
+        }
+    ],
     "books": [
         {
             "id": 0,
@@ -68,7 +76,7 @@
         },
         {
             "id": 1,
-            "title": "Serbian Poetry",
+            "title": "Modern Serbian Poetry",
             "description": "Gothic fiction, sometimes called Gothic horror (primarily in the 20th century), is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
             "imagePath": "../../../assets/serbian.jpg",
             "books": [

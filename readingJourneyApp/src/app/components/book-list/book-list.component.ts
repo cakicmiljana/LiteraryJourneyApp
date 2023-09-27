@@ -20,6 +20,12 @@ export class BookListComponent {
   @Output() isDropdownOpen: boolean = false;
   @Output() isBiographyOn: boolean = false;
   
+  constructor(private store: Store<AppState>, private BooksService: BooksService, private sanitizer: DomSanitizer) {
+    this.books?.map(book => {
+      this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink)
+    })
+  }
+
   booksDropdown(event: Event) {
     this.isDropdownOpen = !this.isDropdownOpen;
     event.stopPropagation();
@@ -41,9 +47,6 @@ export class BookListComponent {
 
   private _book: Book | null = null;
 
-  constructor(private store: Store<AppState>, private BooksService: BooksService, private sanitizer: DomSanitizer) {
-    
-  }
 
   ngOnInit(): void {
     this.store.subscribe(state => {

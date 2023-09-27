@@ -1,1 +1,15 @@
-<p>account works!</p>
+<div class="account-info">
+    <h2>Personal Information</h2>
+    <h3>Username: {{user!.username}}</h3>
+    <h3>Country/Region: {{user!.country}}</h3>
+</div>
+<br>
+<div class="current-journeys-div">
+    <h2>Currently Reading</h2>
+    <app-book-list [theme]="currentJourney$ | async" [books]="(currentJourney$ | async)!.books"></app-book-list>
+</div>
+<br>
+<h2>Completed Journeys</h2>
+<div class="completed-journeys-div" *ngFor="let theme of completedJourney$ | async">
+    <app-book-list [theme]="theme" [books]="theme!.books"></app-book-list>
+</div>

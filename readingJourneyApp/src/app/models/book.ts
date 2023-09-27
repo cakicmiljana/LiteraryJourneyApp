@@ -6,5 +6,5 @@ export interface Book {
     author: string;
     externalLink: string;
     coverPath: string;
-    literaryTheme: Theme;
+    literaryTheme?: Theme;
 }

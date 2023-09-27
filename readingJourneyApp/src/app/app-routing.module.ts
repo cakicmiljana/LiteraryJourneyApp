@@ -3,10 +3,11 @@ import { Routes, RouterModule, Router } from '@angular/router'; // CLI imports r
 import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import { ThemesComponent } from './components/themes/themes.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   { path: '', component: ThemesComponent },
-  { path: 'account', component: BookComponent }
+  { path: 'account', component: AccountComponent }
 ];
 
 // configures NgModule imports and exports

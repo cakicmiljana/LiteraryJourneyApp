@@ -17,4 +17,9 @@ export class ThemesService {
     return this.httpClient.get<Theme[]>("http://localhost:3000/themes")
     
   }
+
+  getThemeById(id: number) {
+    return this.httpClient.get<Theme>(`http://localhost:3000/themes/${id}`)
+    
+  }
 }
