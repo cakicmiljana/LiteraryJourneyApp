@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs'
 import { ThemesService } from '../../services/themes.service'
 import { AppState } from '../../app.state'
 import { Store } from '@ngrx/store'
+import { loadThemes } from 'src/app/store/themes/themes.action';
+import { selectAllThemesFeature, selectThemesList } from 'src/app/store/themes/themes.selector';
 
 @Component({
   selector: 'app-themes',
@@ -11,7 +13,7 @@ import { Store } from '@ngrx/store'
   styleUrls: ['./themes.component.scss']
 })
 export class ThemesComponent {
-  theme$: Theme[] = [];
+  theme$: Observable<Theme[]> = of([]);
   
 
   constructor(private store: Store<AppState>, private ThemesService: ThemesService) {
@@ -19,12 +21,8 @@ export class ThemesComponent {
   }
 
   ngOnInit(): void {
-    this.store.subscribe(state => {
-      this.theme$ = state.themes.allThemes;
-    })
-
-    this.ThemesService.getAllThemes()
-      .subscribe(themes => this.theme$=themes);
+    this.store.dispatch(loadThemes());
+    this.theme$ = this.store.select(selectAllThemesFeature);
   }
 
   

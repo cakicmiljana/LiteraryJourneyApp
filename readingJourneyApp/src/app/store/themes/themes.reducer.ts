@@ -11,5 +11,11 @@ export const ThemesReducer = createReducer(
             ...state,
             selectedTheme: theme
         }
+    }),
+    on(Actions.loadThemesSuccess, (state, {themes}) => {
+        return {
+            ...state,
+            allThemes: themes
+        }
     })
 )

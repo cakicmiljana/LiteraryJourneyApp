@@ -6,10 +6,10 @@ export const selectAllThemesFeature = createSelector(
   (allThemes) => allThemes
 );
 
-// export const selectThemesList = createSelector(
-//   selectAllThemesFeature,
-//   (themes) => themes
-// );
+export const selectThemesList = createSelector(
+  selectAllThemesFeature,
+  (themes) => themes
+);
 
 // export const selectSongsDict = createSelector(
 //     selectSongsFeature,

@@ -24,7 +24,8 @@ h3, h4, h5 {
     width: 150px;
     height: 320px;
     position: relative;
-    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
 }
 
 .book-item-div:hover {
@@ -41,7 +42,6 @@ h3, h4, h5 {
 .order-button {
     position: absolute;
     bottom: 0;
-    left: 0;
     background-color: antiquewhite;
     margin-top: 20px;
     margin-bottom: 10px;
