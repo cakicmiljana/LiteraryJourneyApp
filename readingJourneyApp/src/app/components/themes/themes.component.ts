@@ -11,7 +11,7 @@ import { Store } from '@ngrx/store'
   styleUrls: ['./themes.component.scss']
 })
 export class ThemesComponent {
-  @Input() theme$: Theme[] = [];
+  theme$: Theme[] = [];
   
 
   constructor(private store: Store<AppState>, private ThemesService: ThemesService) {

@@ -3,6 +3,9 @@ import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
 import { ThemesService } from '../../services/themes.service'
 import { Theme } from 'src/app/models/theme';
+import { selectTheme } from 'src/app/store/themes/themes.action';
+import { startJourney } from 'src/app/store/user/user.action';
+import { selectCurrentThemeFeature } from 'src/app/store/user/user.selector';
 
 @Component({
   selector: 'app-theme',
@@ -21,7 +24,6 @@ export class ThemeComponent {
     
   }
 
-  
   themeDropdown(event: Event) {
     this.isDropdownOpen = !this.isDropdownOpen;
     event.stopPropagation();
@@ -29,5 +31,9 @@ export class ThemeComponent {
   
   preventClose(event: Event) {
     event.stopPropagation();
+  }
+
+  startJourney(theme: Theme) {
+    this.store.dispatch(startJourney({theme}))
   }
 }

@@ -1,20 +1,20 @@
-// import { createSelector } from '@ngrx/store';
-// import { AppState } from '../../app.state'
+import { createSelector } from '@ngrx/store';
+import { AppState } from '../../app.state'
 
-// export const selectAllThemesFeature = createSelector(
-//   (state: AppState) => state.themes.allThemes,
-//   (themes) => themes
-// );
+export const selectAllThemesFeature = createSelector(
+  (state: AppState) => state.themes.allThemes,
+  (allThemes) => allThemes
+);
 
 // export const selectThemesList = createSelector(
 //   selectAllThemesFeature,
 //   (themes) => themes
 // );
 
-// // export const selectSongsDict = createSelector(
-// //     selectSongsFeature,
-// //     (songs) => songs.list
-// // )
+// export const selectSongsDict = createSelector(
+//     selectSongsFeature,
+//     (songs) => songs.list
+// )
 
 // export const selectSelectedThemeId = createSelector(
 //   selectAllThemesFeature,

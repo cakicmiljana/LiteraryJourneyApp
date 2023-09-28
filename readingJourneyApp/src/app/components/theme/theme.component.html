@@ -2,7 +2,7 @@
     <div class="theme-info-div">
         <h2 (click)="themeDropdown($event)">{{theme.title}}</h2>
         <label *ngIf="isDropdownOpen"> {{theme.description}}</label>
-        <button class="start-button" *ngIf="isDropdownOpen" (click)="preventClose($event)">START JOURNEY NOW</button>
+        <button class="start-button" *ngIf="isDropdownOpen" (click)="startJourney(theme)">START JOURNEY NOW</button>
     </div>
     <div class="books-div">
         <ng-container *ngIf="isDropdownOpen" >
