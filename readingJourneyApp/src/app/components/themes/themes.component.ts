@@ -2,7 +2,7 @@ import { Component, Input, Output } from '@angular/core';
 import { Theme } from 'src/app/models/theme';
 import { Observable, of } from 'rxjs'
 import { ThemesService } from '../../services/themes.service'
-import { ThemesState } from 'src/app/store/themes/themes.reducer'
+import { AppState } from '../../app.state'
 import { Store } from '@ngrx/store'
 
 @Component({
@@ -11,20 +11,16 @@ import { Store } from '@ngrx/store'
   styleUrls: ['./themes.component.scss']
 })
 export class ThemesComponent {
-  theme$: Theme[] = [];
-
-  @Output() isDropdownOpen: boolean = false;
-  selectedTheme: number | null = null;
+  @Input() theme$: Theme[] = [];
   
 
-  constructor(private store: Store<ThemesState>, private ThemesService: ThemesService) {
-    
+  constructor(private store: Store<AppState>, private ThemesService: ThemesService) {
+
   }
 
   ngOnInit(): void {
     this.store.subscribe(state => {
-      this.theme$ = state.allThemes;
-      this.selectedTheme = state.selectedTheme;
+      this.theme$ = state.themes.allThemes;
     })
 
     this.ThemesService.getAllThemes()
@@ -33,12 +29,6 @@ export class ThemesComponent {
 
   
   preventClose(event: Event) {
-    event.stopPropagation();
-  }
-  
-
-  booksDropdown(event: Event) {
-    this.isDropdownOpen = !this.isDropdownOpen;
     event.stopPropagation();
   }
 

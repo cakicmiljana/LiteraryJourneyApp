@@ -17,6 +17,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ThemesReducer } from './store/themes/themes.reducer';
 import { CurrentThemeComponent } from './components/current-theme/current-theme.component';
 import { AppState } from './app.state';
+import { ThemeComponent } from './components/theme/theme.component';
+import { UserReducer } from './store/user/user.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +28,14 @@ import { AppState } from './app.state';
     MenuBarComponent,
     AccountComponent,
     AccountUpdateComponent,
-    CurrentThemeComponent
+    CurrentThemeComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot<AppState>({themes: ThemesReducer }),
+    StoreModule.forRoot<AppState>({themes: ThemesReducer, user: UserReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       autoPause: true,

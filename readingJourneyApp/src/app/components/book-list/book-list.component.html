@@ -1,25 +1,22 @@
-<div class="book-dropdown-div" style="background-image: url({{theme?.imagePath}}); background-size: cover;" (click)="booksDropdown($event)">
-    <h2>{{theme?.title}}</h2>
-    <ng-container *ngIf="isDropdownOpen" >
-        <button class="start-button" (click)="preventClose($event)">START JOURNEY NOW</button>
-        <ul *ngFor="let book of books">
-            <div class="book-item-div" (click)="preventClose($event)">
-                
-                <div id="overlay" (click)="biographyOverlay()"> 
-                    <img src="../../../assets/wilde.jpg" width="128">
-                </div>
+<div class="books-list-div">
 
-                <img src="{{ book.coverPath }}" width="128" height="195"/>
-                <h3>{{ book.title }}</h3>
-                <h4 (click)="biographyOverlay()">
-                    <ng-container *ngIf="isBiographyOn">
-
-                    </ng-container>
-                    {{ book.author }}</h4>
-                <a href="{{book.externalLink}}" target="_blank">
-                    <button class="order-button">Order Book</button>
-                </a>
+    <ul *ngFor="let book of books">
+        <div class="book-item-div" (click)="preventClose($event)">
+            
+            <div id="overlay" (click)="biographyOverlay()"> 
+                <img src="../../../assets/wilde.jpg" width="128">
             </div>
-        </ul>
-    </ng-container>
+    
+            <img src="{{ book.coverPath }}" width="128" height="195"/>
+            <h3>{{ book.title }}</h3>
+            <h4 (click)="biographyOverlay()">
+                <ng-container *ngIf="isBiographyOn">
+    
+                </ng-container>
+                {{ book.author }}</h4>
+            <a href="{{book.externalLink}}" target="_blank">
+                <button class="order-button">Order Book</button>
+            </a>
+        </div>
+    </ul>
 </div>

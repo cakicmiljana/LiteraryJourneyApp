@@ -9,28 +9,3 @@ h3, h4, h5 {
     color: wheat;
     text-shadow: black 1px 1px 10px;
 }
-
-.theme-div {
-    display: flex;
-    flex-direction: row;
-}
-
-.book-dropdown-div {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: fit-content;
-}
-
-.book-dropdown-div h2 {
-    display: block;
-    color: wheat;
-    padding: 10px;
-    text-shadow: black 1px 1px 10px;
-}
-
-.start-button{
-    height: 40px;
-    width: 150px;
-    margin-top: 20px;
-}
