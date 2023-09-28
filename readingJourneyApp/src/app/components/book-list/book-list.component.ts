@@ -2,7 +2,7 @@ import { Component, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
-import { AppState } from 'src/app/store/book.reducer';
+import { ThemesState } from 'src/app/store/themes/themes.reducer';
 import { Observable, of, tap } from 'rxjs'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import { Theme } from 'src/app/models/theme';
@@ -20,7 +20,7 @@ export class BookListComponent {
   @Output() isDropdownOpen: boolean = false;
   @Output() isBiographyOn: boolean = false;
   
-  constructor(private store: Store<AppState>, private BooksService: BooksService, private sanitizer: DomSanitizer) {
+  constructor(private store: Store<ThemesState>, private BooksService: BooksService, private sanitizer: DomSanitizer) {
     this.books?.map(book => {
       this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink)
     })
@@ -45,13 +45,17 @@ export class BookListComponent {
     }
   }
 
+  startJourney() {
+    
+  }
+
   private _book: Book | null = null;
 
 
   ngOnInit(): void {
-    this.store.subscribe(state => {
-      this.selectedBook = state.selectedBook
-    })
+    // this.store.subscribe(state => {
+    //   this.selectedBook = state.selectedBook
+    // })
   }
 
   @Input()

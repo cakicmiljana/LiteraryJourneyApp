@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
-import { booksReducer } from './store/book.reducer';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { ThemesComponent } from './components/themes/themes.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
@@ -14,7 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './components/account/account.component';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ThemesReducer } from './store/themes/themes.reducer';
+import { CurrentThemeComponent } from './components/current-theme/current-theme.component';
+import { AppState } from './app.state';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,21 +25,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     ThemesComponent,
     MenuBarComponent,
     AccountComponent,
-    AccountUpdateComponent
+    AccountUpdateComponent,
+    CurrentThemeComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule.forRoot([]), // Add your route configuration here
-    StoreModule.forRoot({ books: booksReducer }),
+    StoreModule.forRoot<AppState>({themes: ThemesReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       autoPause: true,
       trace: false,
       traceLimit: 75,
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressBarModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 <div class="book-dropdown-div" style="background-image: url({{theme?.imagePath}}); background-size: cover;" (click)="booksDropdown($event)">
     <h2>{{theme?.title}}</h2>
     <ng-container *ngIf="isDropdownOpen" >
+        <button class="start-button" (click)="preventClose($event)">START JOURNEY NOW</button>
         <ul *ngFor="let book of books">
             <div class="book-item-div" (click)="preventClose($event)">
                 
@@ -16,7 +17,7 @@
                     </ng-container>
                     {{ book.author }}</h4>
                 <a href="{{book.externalLink}}" target="_blank">
-                    <button>Order Book</button>
+                    <button class="order-button">Order Book</button>
                 </a>
             </div>
         </ul>

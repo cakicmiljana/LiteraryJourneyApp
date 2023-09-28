@@ -3,6 +3,7 @@ import { Theme } from 'src/app/models/theme';
 import { User } from 'src/app/models/user';
 import { ThemesService } from 'src/app/services/themes.service';
 import { Observable, of } from 'rxjs';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-account',
@@ -18,6 +19,15 @@ export class AccountComponent {
   };
 
   currentJourney$: Observable<Theme> | null = of();
+  finishedBooks: Book[] = [
+    {
+        "id": 4,
+        "title": "Kora",
+        "author": "Vasko Popa",
+        "externalLink": "https://kontrastizdavastvo.rs/knjige/knjiga-kora-vasko-popa-27939",
+        "coverPath": "../../../assets/kora.jpg"
+    }];
+
   completedJourney$: Observable<Theme[]> | null = of();
 
   constructor(private ThemesService: ThemesService) {

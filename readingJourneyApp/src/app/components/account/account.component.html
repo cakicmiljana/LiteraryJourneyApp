@@ -6,15 +6,15 @@
 </div>
 <br>
 
-
-
-
 <div class="current-journeys-div">
     <h2>Currently Reading</h2>
-    <app-book-list [theme]="currentJourney$ | async" [books]="(currentJourney$ | async)!.books"></app-book-list>
+    <app-themes></app-themes>
+    <mat-progress-bar class="mat-warn" mode="determinate" value="{{ (finishedBooks.length/(currentJourney$ | async)!.books.length)*100 }}">
+    </mat-progress-bar>
 </div>
 <br>
+
 <h2>Completed Journeys</h2>
 <div class="completed-journeys-div" *ngFor="let theme of completedJourney$ | async">
-    <app-book-list [theme]="theme" [books]="theme!.books"></app-book-list>
+    <app-book-list [theme]="theme" [books]="theme.books"></app-book-list>
 </div>
