@@ -1,9 +1,17 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../../app.state'
+import { Theme } from 'src/app/models/theme';
+
+export const selectThemesFeature = createSelector(
+  (state: AppState) => state.themes,
+  (themes) => themes
+);
 
 export const selectAllThemesFeature = createSelector(
-  (state: AppState) => state.themes.allThemes,
-  (allThemes) => allThemes
+  selectThemesFeature,
+  (themes) => themes.ids.map(id => themes.entities[id])
+                        .filter(theme => theme != null)
+                        .map(theme => <Theme>theme)
 );
 
 export const selectThemesList = createSelector(

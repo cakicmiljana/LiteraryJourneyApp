@@ -3,6 +3,7 @@ import * as Actions from './themes.action'
 import { Theme } from '../../models/theme'
 import { User } from '../../models/user'
 import { initialState } from './themes.state'
+import { adapter } from './themes.state'
 
 export const ThemesReducer = createReducer(
     initialState,
@@ -12,10 +13,8 @@ export const ThemesReducer = createReducer(
             selectedTheme: theme
         }
     }),
-    on(Actions.loadThemesSuccess, (state, {themes}) => {
-        return {
-            ...state,
-            allThemes: themes
-        }
-    })
+    on(Actions.loadThemesSuccess, (state, {themes}) => 
+        adapter.setAll(themes, state)
+        
+    )
 )

@@ -1,19 +1,21 @@
-<div class="account-info">
-    <h2>Personal Information</h2>
-    <h3>Username: {{user!.username}}</h3>
-    <h3>Country/Region: {{user!.country}}</h3>
-    <button routerLink="/account/update">Update Account Information</button>
+<div class="account-div">
+    <div class="account-info-div">
+        <h2>PERSONAL INFORMATION</h2>
+        <h3>Username: {{user!.username}}</h3>
+        <h3>Country/Region: {{user!.country}}</h3>
+        <button routerLink="/account/update">Update Account Information</button>
+    </div>
+    <br>
+    
+    <div class="current-journey-div" *ngIf="currentJourney">
+        <h2>CURRENTLY READING</h2>
+        <h2>{{currentJourney.title}}</h2>
+        <mat-progress-bar class="mat-warn" mode="determinate" value="{{ 65 }}">
+        </mat-progress-bar>
+        <app-book-list [theme]="currentJourney" [books]="currentJourney.books"></app-book-list>
+    </div>
+    <br>
 </div>
-<br>
-
-<div class="current-journey-div" *ngIf="currentJourney">
-    <h2>CURRENTLY READING</h2>
-    <h2>{{currentJourney.title}}</h2>
-    <mat-progress-bar class="mat-warn" mode="determinate" value="{{ (finishedBooks.length)*10 }}">
-    </mat-progress-bar>
-    <app-book-list [theme]="currentJourney" [books]="currentJourney.books"></app-book-list>
-</div>
-<br>
 
 <!-- <h2>Completed Journeys</h2>
 <div class="completed-journeys-div" *ngFor="let theme of completedJourneys">

@@ -2,11 +2,22 @@ button {
     background-color: wheat;
 }
 
+.account-info-div {
+    margin: 20px;
+}
+
 .current-journey-div {
+    margin: 20px;
+    margin-left: 50px;
     width: fit-content;
     align-items: center;
 }
 
 .mat-warn {
     margin-top: 10px;
+}
+
+.account-div {
+    display: flex;
+    flex-direction: row;
 }

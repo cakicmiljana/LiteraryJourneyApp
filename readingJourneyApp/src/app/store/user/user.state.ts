@@ -1,13 +1,14 @@
+import { EntityState, createEntityAdapter } from "@ngrx/entity";
 import { Theme } from "src/app/models/theme";
 import { User } from "src/app/models/user";
 
-export interface UserState {
+export interface UserState extends EntityState<Theme> {
     user: User,
-    currentTheme: Theme,
-    completedThemes: Theme[],
+    currentTheme: Theme
 }
 
-export const initialState : UserState = {
+const adapter=createEntityAdapter<Theme>();
+export const initialState : UserState = adapter.getInitialState({
     user: {
         id: -1,
         username: '',
@@ -18,6 +19,5 @@ export const initialState : UserState = {
         id: -1,
         title: '',
         books: []
-    },
-    completedThemes: []
-}
+    }
+})
