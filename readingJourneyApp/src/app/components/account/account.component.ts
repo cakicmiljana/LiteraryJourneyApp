@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
-import { selectCurrentThemeFeature } from 'src/app/store/user/user.selector';
+import { selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
 
 @Component({
   selector: 'app-account',
@@ -14,12 +14,10 @@ import { selectCurrentThemeFeature } from 'src/app/store/user/user.selector';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent {
-  user: User = {
-    "id": 0,
-    "username": "greg",
-    "password": "boo",
-    "country": "UK"
-  };
+  user: Observable<User> = of();
+  username: string = '';
+  password: string = '';
+  country: string = '';
 
   currentJourney: Theme | null = null;
   finishedBooks: Book[] = [];
@@ -36,12 +34,19 @@ export class AccountComponent {
     this.store.select(selectCurrentThemeFeature).subscribe((state) => {
       this.currentJourney=state
     })
+
+    this.user=this.store.select(selectUserFeature);
+    this.user.subscribe(user => {
+      this.username = user.username;
+      this.password = user.password;
+      this.country = user.country;
+    })
   }
 
-  UpdateAccountInfo() {
-    this.user = {
-      ...this.user,
-      "username": "new"
-    };
-  }
+  // UpdateAccountInfo() {
+  //   this.user = {
+  //     ...this.user,
+  //     username: "new"
+  //   };
+  // }
 }

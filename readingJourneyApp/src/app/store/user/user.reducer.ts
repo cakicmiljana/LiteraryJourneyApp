@@ -11,5 +11,16 @@ export const UserReducer = createReducer(
             ...state,
             currentTheme: theme
         }
+    }),
+    on(Actions.updateUserInfo, (state, {username, password, country}) => {
+        return {
+            ...state,
+            user: {
+                ...state.user,
+                username,
+                password,
+                country
+            }
+        }
     })
 )

@@ -1,6 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms'
+import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { AppState } from 'src/app/app.state';
 import { User } from 'src/app/models/user';
+import { updateUserInfo } from 'src/app/store/user/user.action';
+import { selectUserFeature } from 'src/app/store/user/user.selector';
 
 @Component({
   selector: 'app-account-update',
@@ -8,20 +13,31 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./account-update.component.scss']
 })
 export class AccountUpdateComponent {
-  user: User = {
-    "id": 0,
-    "username": "greg",
-    "password": "boo",
-    "country": "UK"
-  };
+  user:Observable<User> = of();
+  username: FormControl = new FormControl;
+  country: FormControl = new FormControl;
+  password: FormControl = new FormControl;
+  
+  constructor(private store: Store<AppState>, private cdr: ChangeDetectorRef) {
 
-  username = new FormControl(this.user.username);
-  country = new FormControl(this.user.country);
-  password = new FormControl(this.user.password);
+  }
+  
+  ngOnInit() : void {
+    this.user = this.store.select(selectUserFeature);
+    this.user.subscribe(user => {
+      
+      this.username = new FormControl<string>(user.username);
+      this.country = new FormControl(user.country);
+      this.password = new FormControl(user.password);
+    })
+  }
 
   saveAccountInfo() {
-    this.user = {
-      ...this.user
-    }
+    this.store.dispatch(updateUserInfo({username: this.username.value, 
+      password: this.password.value,
+      country: this.country.value}))
+
+      this.cdr.detectChanges();
+      event?.preventDefault();
   }
 }

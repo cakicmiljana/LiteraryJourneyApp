@@ -10,10 +10,10 @@ export interface UserState extends EntityState<Theme> {
 const adapter=createEntityAdapter<Theme>();
 export const initialState : UserState = adapter.getInitialState({
     user: {
-        id: -1,
-        username: '',
-        password: '',
-        country: ''
+        id: 0,
+        username: "greg",
+        password: "boo",
+        country: "UK"
     },
     currentTheme: {
         id: -1,

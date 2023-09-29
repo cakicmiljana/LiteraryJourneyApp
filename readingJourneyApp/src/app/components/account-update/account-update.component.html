@@ -1,4 +1,5 @@
 <form>
+    <br> <button routerLink="/account" class="back-button">BACK TO PROFILE</button>
     <h3>Username: </h3>
     <input id="username" type="text" [formControl]="username">
     <h3>Country: </h3>
@@ -7,5 +8,5 @@
     <input id="password" type="password" [formControl]="password">
     <br>
     <br>
-    <button (click)="saveAccountInfo()">UPDATE INFO</button> 
+    <button routerLink="/account" (click)="saveAccountInfo()">UPDATE INFO</button>
 </form>

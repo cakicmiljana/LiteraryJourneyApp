@@ -5,3 +5,16 @@ export const selectCurrentThemeFeature = createSelector(
   (state: AppState) => state.user.currentTheme,
   (currentTheme) => currentTheme
 );
+
+export const selectUserFeature = createSelector(
+  (state: AppState) => state.user.user,
+  (user) => user
+);
+// export const selectCurrentThemeFeature = createSelector(
+//   (state: AppState) => state.user.currentTheme,
+//   (currentTheme) => currentTheme
+// );
+// export const selectCurrentThemeFeature = createSelector(
+//   (state: AppState) => state.user.currentTheme,
+//   (currentTheme) => currentTheme
+// );
