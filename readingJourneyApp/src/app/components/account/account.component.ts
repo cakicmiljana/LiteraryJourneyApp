@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
-import { selectCompletedBooksFeature, selectCompletedBooksList, selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
-import { completeBook } from 'src/app/store/user/user.action';
+import { selectCompletedBooksFeature, selectCompletedBooksList, selectCompletedThemesFeature, selectCompletedThemesList, selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
+import { completeBook, completeTheme } from 'src/app/store/user/user.action';
 
 @Component({
   selector: 'app-account',
@@ -22,9 +22,9 @@ export class AccountComponent {
 
   currentJourney: Theme | null = null;
   completedBook$: Observable<Book[]> = of([]);
-
-  completedJourneys: Theme[] | null = [];
   completedBooksNumber: number = 0;
+
+  completedJourney$: Observable<Theme[]> | null = of([]);
   journeyCompleted: boolean = false;
 
   constructor(private ThemesService: ThemesService, private store: Store<AppState>) {
@@ -33,25 +33,18 @@ export class AccountComponent {
   
   ngOnInit(): void {
     
+    this.user = this.store.select(selectUserFeature);
+    this.completedJourney$ = this.store.select(selectCompletedThemesList)
+    this.completedBook$ = this.store.select(selectCompletedBooksList);
+    
     this.store.select(selectCurrentThemeFeature).subscribe((state) => {
       this.currentJourney=state
     })
 
-    this.store.select(selectCompletedBooksFeature).subscribe(state => {
-      this.user
-    })
-
-    this.user=this.store.select(selectUserFeature);
     this.user.subscribe(user => {
-      
       this.username = user.username;
       this.password = user.password;
       this.country = user.country;
-    })
-
-    this.completedBook$ = this.store.select(selectCompletedBooksList);
-    this.completedBook$.subscribe( books => {
-      
     })
   }
 
@@ -61,6 +54,15 @@ export class AccountComponent {
 
     if(this.currentJourney && this.completedBooksNumber === this.currentJourney.books.length) {
       this.journeyCompleted = true;
+
+      this.completeJourney(this.currentJourney);
+
+      this.currentJourney=null;
     }
+  }
+
+  completeJourney(theme: Theme) {
+    
+    this.store.dispatch(completeTheme({theme}))
   }
 }

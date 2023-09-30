@@ -8,4 +8,4 @@ export const loginUserSuccess = createAction('Login User Success', props<{user: 
 export const startJourney = createAction('Start Journey', props<{theme: Theme}>());
 export const updateUserInfo = createAction('Update User Info', props<{username: string, password: string, country: string}>());
 export const completeBook = createAction('Complete Book', props<{book: Book}>());
-export const completeTheme = createAction('Complete Theme', props<{username: string, password: string, country: string}>());
+export const completeTheme = createAction('Complete Theme', props<{theme: Theme}>());

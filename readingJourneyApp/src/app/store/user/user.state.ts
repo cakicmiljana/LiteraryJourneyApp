@@ -7,14 +7,23 @@ export interface BooksState extends EntityState<Book> {
     
 }
 
+export const booksAdapter=createEntityAdapter<Book>();
+
+export interface CompletedThemesState extends EntityState<Theme> {
+    
+}
+
+export const CompletedThemesAdapter=createEntityAdapter<Theme>();
+
 export interface UserState {
     user: User,
     currentTheme: Theme,
-    completedBooks: BooksState
+    completedBooks: BooksState,
+    completedThemes: CompletedThemesState
 }
 
-export const adapter=createEntityAdapter<Book>();  
-export const booksInitialState : BooksState = adapter.getInitialState();
+export const booksInitialState : BooksState = booksAdapter.getInitialState();
+export const completedThemesInitialState : CompletedThemesState = CompletedThemesAdapter.getInitialState();
 export const initialState: UserState = {
     user: {
         id: 0,
@@ -27,5 +36,6 @@ export const initialState: UserState = {
         title: '',
         books: []
     },
-    completedBooks: booksInitialState
+    completedBooks: booksInitialState,
+    completedThemes: completedThemesInitialState
 }

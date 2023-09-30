@@ -2,8 +2,8 @@ import { createReducer, on } from '@ngrx/store'
 import * as Actions from './user.action'
 import { Theme } from '../../models/theme'
 import { User } from '../../models/user'
-import { initialState } from './user.state'
-import { adapter } from '../user/user.state'
+import { CompletedThemesAdapter, initialState } from './user.state'
+import { booksAdapter } from '../user/user.state'
 
 
 export const UserReducer = createReducer(
@@ -29,7 +29,18 @@ export const UserReducer = createReducer(
         
         return {
             ...state,
-            completedBooks: adapter.addOne(book, state.completedBooks)
+            completedBooks: booksAdapter.addOne(book, state.completedBooks)
+        }
+    }),
+    on(Actions.completeTheme, (state, {theme}) => {
+        return {
+            ...state,
+            currentTheme: {
+                id: -1,
+                title: '',
+                books: []
+            },
+            completedThemes: CompletedThemesAdapter.addOne(theme, state.completedThemes)
         }
     })
 )
