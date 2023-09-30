@@ -41,7 +41,7 @@
         {
             "id": 0,
             "title": "Gothic Literature",
-            "description": "Gothic fiction, sometimes called Gothic horror (primarily in the 20th century), is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
+            "description": "Gothic fiction is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
             "imagePath": "../../../assets/gothic.jpg",
             "books": [
                     {
@@ -77,7 +77,7 @@
         {
             "id": 1,
             "title": "Modern Serbian Poetry",
-            "description": "Gothic fiction, sometimes called Gothic horror (primarily in the 20th century), is a loose literary aesthetic of fear and haunting. The name refers to Gothic architecture of the European Middle Ages, which was characteristic of the settings of early Gothic novels.",
+            "description": "Modern Serbian poetry gained a strong momentum after the First World War, fond of modernist and avant-garde poetic orientations, and the traces of that momentum are visible throughout the last century.",
             "imagePath": "../../../assets/serbian.jpg",
             "books": [
                     {
@@ -100,6 +100,35 @@
                     "author": "Vladislav Petković Dis",
                     "externalLink": "https://www.delfi.rs/knjige/autor/4843_vladislav_petkovic_dis_delfi_knjizare.html",
                     "coverPath": "../../../assets/utopljene.jpg"
+                    }
+                ]
+        },
+        {
+            "id": 2,
+            "title": "Dystopian Novels",
+            "description": "The dystopian novels Fahrenheit 451, 1984 and Brave New World show Bradbury, Orwell and Huxley’s vision of modern society. The authors include ideas of fear, technology and pleasure in a way that predicts how they see today’s society.",
+            "imagePath": "../../../assets/dystopia.jpg",
+            "books": [
+                    {
+                        "id": 7,
+                        "title": "1984",
+                        "author": "George Orwell",
+                        "externalLink": "https://www.amazon.com/s?k=1984",
+                        "coverPath": "../../../assets/1984.jpg"
+                    },
+                    {
+                        "id": 8,
+                        "title": "Fahrenheit 451",
+                        "author": "Ray Bradbury",
+                        "externalLink": "https://www.amazon.com/s?k=fahrenheit+451",
+                        "coverPath": "../../../assets/fahren.jpg"
+                    },
+                    {
+                    "id": 9,
+                    "title": "Brave New World",
+                    "author": "Aldous Huxley",
+                    "externalLink": "https://www.amazon.com/s?k=brave+new+world",
+                    "coverPath": "../../../assets/brave.jpg"
                     }
                 ]
         }

@@ -9,9 +9,10 @@ export const selectThemesFeature = createSelector(
 
 export const selectAllThemesFeature = createSelector(
   selectThemesFeature,
-  (themes) => themes.ids.map(id => themes.entities[id])
-                        .filter(theme => theme != null)
-                        .map(theme => <Theme>theme)
+  (themes) => themes.ids
+    .map(id => themes.entities[id])
+    .filter(theme => theme != null)
+    .map(theme => <Theme>theme)
 );
 
 export const selectThemesList = createSelector(

@@ -13,7 +13,7 @@ export interface UserState {
     completedBooks: BooksState
 }
 
-const adapter=createEntityAdapter<Book>();  
+export const adapter=createEntityAdapter<Book>();  
 export const booksInitialState : BooksState = adapter.getInitialState();
 export const initialState: UserState = {
     user: {

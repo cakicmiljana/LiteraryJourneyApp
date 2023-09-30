@@ -3,6 +3,7 @@ import * as Actions from './user.action'
 import { Theme } from '../../models/theme'
 import { User } from '../../models/user'
 import { initialState } from './user.state'
+import { adapter } from '../user/user.state'
 
 
 export const UserReducer = createReducer(
@@ -22,6 +23,13 @@ export const UserReducer = createReducer(
                 password,
                 country
             }
+        }
+    }),
+    on(Actions.completeBook, (state, {book}) => {
+        
+        return {
+            ...state,
+            completedBooks: adapter.addOne(book, state.completedBooks)
         }
     })
 )

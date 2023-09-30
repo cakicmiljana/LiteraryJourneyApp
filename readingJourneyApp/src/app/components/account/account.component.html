@@ -10,13 +10,13 @@
     <div class="current-journey-div" *ngIf="currentJourney">
         <h2>CURRENTLY READING</h2>
         <h2>{{currentJourney.title}}</h2>
-        <mat-progress-bar class="mat-warn" mode="determinate" value="{{ 65 }}">
+        <mat-progress-bar class="mat-warn" mode="determinate" value="{{ (completedBooksNumber / currentJourney.books.length)*100}}">
         </mat-progress-bar>
 
         <div class="books-list-div">
             <ul class="book-div" *ngFor="let book of currentJourney.books">
                 <app-book [book] = "book" > </app-book>
-                <button>COMPLETED</button>
+                <button (click)="completeBook(book)">COMPLETED</button>
             </ul>
         </div>
         <!-- <app-book-list [books]="currentJourney.books"></app-book-list> -->
