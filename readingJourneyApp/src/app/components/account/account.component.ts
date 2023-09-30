@@ -25,6 +25,7 @@ export class AccountComponent {
 
   completedJourneys: Theme[] | null = [];
   completedBooksNumber: number = 0;
+  journeyCompleted: boolean = false;
 
   constructor(private ThemesService: ThemesService, private store: Store<AppState>) {
     
@@ -50,11 +51,16 @@ export class AccountComponent {
 
     this.completedBook$ = this.store.select(selectCompletedBooksList);
     this.completedBook$.subscribe( books => {
-      this.completedBooksNumber = books.length;
+      
     })
   }
 
   completeBook(book: Book) {
     this.store.dispatch(completeBook({book}))
+    this.completedBooksNumber++;
+
+    if(this.currentJourney && this.completedBooksNumber === this.currentJourney.books.length) {
+      this.journeyCompleted = true;
+    }
   }
 }

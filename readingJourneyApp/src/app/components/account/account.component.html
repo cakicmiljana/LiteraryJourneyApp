@@ -6,10 +6,12 @@
         <button routerLink="/account/update">Update Account Information</button>
     </div>
     <br>
+
     
     <div class="current-journey-div" *ngIf="currentJourney">
         <h2>CURRENTLY READING</h2>
         <h2>{{currentJourney.title}}</h2>
+        <h2 *ngIf="this.journeyCompleted" routerLink="/">YOU SUCCESSFULLY COMPLETED THIS JOURNEY! CLICK TO FIND NEW THEME.</h2>
         <mat-progress-bar class="mat-warn" mode="determinate" value="{{ (completedBooksNumber / currentJourney.books.length)*100}}">
         </mat-progress-bar>
 
@@ -24,7 +26,8 @@
     <br>
 </div>
 
-<!-- <h2>Completed Journeys</h2>
-<div class="completed-journeys-div" *ngFor="let theme of completedJourneys">
-    <app-book-list [theme]="theme" [books]="theme.books"></app-book-list>
-</div> -->
+<br>
+<br>
+<div class="completed-journeys-div">
+    <h2>COMPLETED JOURNEYS </h2>
+</div>

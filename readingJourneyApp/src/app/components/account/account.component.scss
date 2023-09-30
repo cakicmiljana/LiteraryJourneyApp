@@ -2,6 +2,11 @@ button {
     background-color: wheat;
 }
 
+.account-div {
+    display: flex;
+    flex-direction: row;
+}
+
 .account-info-div {
     margin: 20px;
 }
@@ -17,14 +22,13 @@ button {
     margin-top: 10px;
 }
 
-.account-div {
-    display: flex;
-    flex-direction: row;
-}
-
 .books-list-div {
     display: flex;
     flex-direction: row;
     height: 100%;
     width: fit-content;
+}
+
+.completed-journeys-div {
+    margin: 20px;
 }

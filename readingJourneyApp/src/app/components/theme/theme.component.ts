@@ -34,6 +34,6 @@ export class ThemeComponent {
   }
 
   startJourney(theme: Theme) {
-    this.store.dispatch(startJourney({theme}))
+    this.store.dispatch(startJourney({theme: theme}))
   }
 }
