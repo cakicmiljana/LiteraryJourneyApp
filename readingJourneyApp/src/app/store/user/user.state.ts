@@ -26,10 +26,10 @@ export const booksInitialState : BooksState = booksAdapter.getInitialState();
 export const completedThemesInitialState : CompletedThemesState = CompletedThemesAdapter.getInitialState();
 export const initialState: UserState = {
     user: {
-        id: 0,
-        username: "greg",
-        password: "boo",
-        country: "UK"
+        id: -1,
+        username: "",
+        password: "",
+        country: ""
     },
     currentTheme: {
         id: -1,

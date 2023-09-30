@@ -1,0 +1,17 @@
+<div class="login-div">
+    <h2>Log In</h2>
+    <form>
+        <label>Username </label>
+        <input [formControl]="username"/> 
+    </form>
+    <br><br>
+    <form>
+        <label>Password </label>
+        <input type="password" [formControl]="password"/>
+    </form>
+    
+    <br>
+    
+    <button (click)="Login()" routerLink="/">Log In</button>
+
+</div>

@@ -36,6 +36,10 @@ export class AccountComponent {
     this.user = this.store.select(selectUserFeature);
     this.completedJourney$ = this.store.select(selectCompletedThemesList)
     this.completedBook$ = this.store.select(selectCompletedBooksList);
+
+    this.completedBook$.subscribe((state) => {
+      this.completedBooksNumber = state.length
+    })
     
     this.store.select(selectCurrentThemeFeature).subscribe((state) => {
       this.currentJourney=state
@@ -50,7 +54,6 @@ export class AccountComponent {
 
   completeBook(book: Book) {
     this.store.dispatch(completeBook({book}))
-    this.completedBooksNumber++;
 
     if(this.currentJourney && this.completedBooksNumber === this.currentJourney.books.length) {
       this.journeyCompleted = true;

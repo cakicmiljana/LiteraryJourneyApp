@@ -21,6 +21,8 @@ import { ThemeComponent } from './components/theme/theme.component';
 import { UserReducer } from './store/user/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ThemesEffects } from './store/themes/themes.effects';
+import { LoginComponent } from './components/login/login.component';
+import { UserEffects } from './store/user/user.effects';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,14 @@ import { ThemesEffects } from './store/themes/themes.effects';
     AccountComponent,
     AccountUpdateComponent,
     CurrentThemeComponent,
-    ThemeComponent
+    ThemeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    EffectsModule.forRoot([ThemesEffects]),
+    EffectsModule.forRoot([ThemesEffects, UserEffects]),
     StoreModule.forRoot<AppState>({themes: ThemesReducer, user: UserReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,

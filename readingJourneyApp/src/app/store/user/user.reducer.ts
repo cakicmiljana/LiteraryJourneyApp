@@ -29,18 +29,25 @@ export const UserReducer = createReducer(
         
         return {
             ...state,
-            completedBooks: booksAdapter.addOne(book, state.completedBooks)
+            completedBooks: booksAdapter.setOne(book, state.completedBooks)
         }
     }),
     on(Actions.completeTheme, (state, {theme}) => {
         return {
             ...state,
+            completedBooks: booksAdapter.setAll([], state.completedBooks),
             currentTheme: {
                 id: -1,
                 title: '',
                 books: []
             },
             completedThemes: CompletedThemesAdapter.addOne(theme, state.completedThemes)
+        }
+    }),
+    on(Actions.LoginSuccess, (state, {user}) => {
+        return {
+            ...state,
+            user
         }
     })
 )
