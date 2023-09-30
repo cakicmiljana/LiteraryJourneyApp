@@ -19,19 +19,9 @@ h3, h4, h5 {
     width: fit-content;
 }
 
-.book-item-div {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 150px;
-    height: 320px;
-    position: relative;
-    padding-top: 10px;
-    padding-left: 20px;
-}
-
-.book-item-div:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+.book-div {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .book-dropdown-div h2 {

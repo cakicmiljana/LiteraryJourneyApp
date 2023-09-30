@@ -21,6 +21,7 @@ import { ThemeComponent } from './components/theme/theme.component';
 import { UserReducer } from './store/user/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ThemesEffects } from './store/themes/themes.effects';
+
 @NgModule({
   declarations: [
     AppComponent,

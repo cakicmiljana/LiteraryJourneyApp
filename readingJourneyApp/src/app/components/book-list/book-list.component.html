@@ -1,22 +1,6 @@
 <div class="books-list-div">
 
-    <ul *ngFor="let book of books">
-        <div class="book-item-div" (click)="preventClose($event)">
-            
-            <div id="overlay" (click)="biographyOverlay()"> 
-                <img src="../../../assets/wilde.jpg" width="128">
-            </div>
-    
-            <img src="{{ book.coverPath }}" width="128" height="195"/>
-            <h3>{{ book.title }}</h3>
-            <h4 (click)="biographyOverlay()">
-                <ng-container *ngIf="isBiographyOn">
-    
-                </ng-container>
-                {{ book.author }}</h4>
-            <a href="{{book.externalLink}}" target="_blank">
-                <button class="order-button">Order Book</button>
-            </a>
-        </div>
+    <ul class="book-div" *ngFor="let book of books">
+        <app-book [book] = "book" > </app-book>
     </ul>
 </div>

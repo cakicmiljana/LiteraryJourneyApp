@@ -19,4 +19,8 @@ export class UsersService {
   getUserById(id: number) {
     return this.httpClient.get<User>(`http://localhost:3000/users/${id}`)
   }
+
+  saveUser(userId: number) {
+    return this.httpClient.post("http://localhost:3000/users/" + userId, {});
+  }
 }

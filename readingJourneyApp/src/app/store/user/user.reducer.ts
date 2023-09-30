@@ -4,6 +4,7 @@ import { Theme } from '../../models/theme'
 import { User } from '../../models/user'
 import { initialState } from './user.state'
 
+
 export const UserReducer = createReducer(
     initialState,
     on(Actions.startJourney, (state, {theme}) => {

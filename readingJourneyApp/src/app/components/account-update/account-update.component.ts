@@ -6,6 +6,7 @@ import { AppState } from 'src/app/app.state';
 import { User } from 'src/app/models/user';
 import { updateUserInfo } from 'src/app/store/user/user.action';
 import { selectUserFeature } from 'src/app/store/user/user.selector';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-account-update',
@@ -14,18 +15,19 @@ import { selectUserFeature } from 'src/app/store/user/user.selector';
 })
 export class AccountUpdateComponent {
   user:Observable<User> = of();
+  id: number=-1;
   username: FormControl = new FormControl;
   country: FormControl = new FormControl;
   password: FormControl = new FormControl;
   
-  constructor(private store: Store<AppState>, private cdr: ChangeDetectorRef) {
+  constructor(private service: UsersService, private store: Store<AppState>, private cdr: ChangeDetectorRef) {
 
   }
   
   ngOnInit() : void {
     this.user = this.store.select(selectUserFeature);
     this.user.subscribe(user => {
-      
+      this.id = user.id;
       this.username = new FormControl<string>(user.username);
       this.country = new FormControl(user.country);
       this.password = new FormControl(user.password);
@@ -38,6 +40,7 @@ export class AccountUpdateComponent {
       country: this.country.value}))
 
       this.cdr.detectChanges();
+      this.service.saveUser(this.id);
       event?.preventDefault();
   }
 }

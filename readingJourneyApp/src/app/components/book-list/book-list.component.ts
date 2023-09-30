@@ -1,9 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
-import { ThemesState } from 'src/app/store/themes/themes.state';
-import { Observable, of, tap } from 'rxjs'
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser'
 import { Theme } from 'src/app/models/theme';
 
@@ -14,13 +11,12 @@ import { Theme } from 'src/app/models/theme';
 })
 export class BookListComponent {
   @Input() books: Book[] | null = null;
-  @Input() theme: Theme | null = null;
   
   selectedBook: number = 0;
   @Output() isDropdownOpen: boolean = false;
   @Output() isBiographyOn: boolean = false;
   
-  constructor(private store: Store<ThemesState>, private BooksService: BooksService, private sanitizer: DomSanitizer) {
+  constructor(private BooksService: BooksService, private sanitizer: DomSanitizer) {
     this.books?.map(book => {
       this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink)
     })

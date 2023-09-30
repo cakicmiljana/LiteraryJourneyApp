@@ -12,7 +12,14 @@
         <h2>{{currentJourney.title}}</h2>
         <mat-progress-bar class="mat-warn" mode="determinate" value="{{ 65 }}">
         </mat-progress-bar>
-        <app-book-list [theme]="currentJourney" [books]="currentJourney.books"></app-book-list>
+
+        <div class="books-list-div">
+            <ul class="book-div" *ngFor="let book of currentJourney.books">
+                <app-book [book] = "book" > </app-book>
+                <button>COMPLETED</button>
+            </ul>
+        </div>
+        <!-- <app-book-list [books]="currentJourney.books"></app-book-list> -->
     </div>
     <br>
 </div>
