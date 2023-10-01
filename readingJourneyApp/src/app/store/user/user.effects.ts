@@ -12,19 +12,16 @@ export class UserEffects {
     }
     
     loginUser$ = createEffect(() => 
-    this.action$.pipe(
-        tap( () => {
-            console.log("user effect")
-        }), 
-        ofType(UserActions.Login),
-        switchMap((action) => 
-            this.userService.loginUser(action.username, action.password).pipe(
-                tap((user) => {
-                    console.log("user: ", user)
-                }),
-                map((user) => UserActions.LoginSuccess({user: user})),
-                catchError(() => of({ type: 'load error'}))
+        this.action$.pipe(
+            ofType(UserActions.Login),
+            mergeMap((action) => 
+                this.userService.loginUser(action.username, action.password).pipe(
+                    map((user) => (UserActions.LoginSuccess({user}))),
+                    tap((user) => {
+                        console.log("user from effect: ", user)
+                    }),
+                    catchError(() => of({ type: 'load error'}))
+                )
             )
-        )
-    ))
+        ))
 }

@@ -12,3 +12,4 @@ export const completeBook = createAction('Complete Book', props<{book: Book}>())
 export const completeTheme = createAction('Complete Theme', props<{theme: Theme}>());
 export const Login = createAction('Login', props<{username: string, password: string}>());
 export const LoginSuccess = createAction('Login Success', props<{user: User}>());
+export const Logout = createAction('Logout');

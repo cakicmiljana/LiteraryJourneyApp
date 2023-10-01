@@ -1,11 +1,11 @@
 <form>
     <br> <button routerLink="/account" class="back-button">BACK TO PROFILE</button>
     <h3>Username: </h3>
-    <input id="username" type="text" [(ngModel)]="username">
+    <input id="username" type="text" [(ngModel)]="username" name="username">
     <h3>Country: </h3>
-    <input id="country" type="text" [(ngModel)]="country">
+    <input id="country" type="text" [(ngModel)]="country" name="country">
     <h3>Password: </h3>
-    <input id="password" type="password" [(ngModel)]="password">
+    <input id="password" type="password" [(ngModel)]="password" name="password">
     <br>
     <br>
     <button routerLink="/account" (click)="saveAccountInfo()">UPDATE INFO</button>

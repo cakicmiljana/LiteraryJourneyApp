@@ -7,7 +7,7 @@ import { Book } from 'src/app/models/book';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
 import { selectCompletedBooksFeature, selectCompletedBooksList, selectCompletedThemesFeature, selectCompletedThemesList, selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
-import { completeBook, completeTheme } from 'src/app/store/user/user.action';
+import { Logout, completeBook, completeTheme } from 'src/app/store/user/user.action';
 
 @Component({
   selector: 'app-account',
@@ -16,15 +16,14 @@ import { completeBook, completeTheme } from 'src/app/store/user/user.action';
 })
 export class AccountComponent {
   user$: Observable<User> = of();
-  user: User | null = null;
+  user: User | null | undefined;
   username: string = "";
-  password: string = '';
   country: string = '';
 
   currentJourney: Theme | null = null;
   completedBook$: Observable<Book[]> = of([]);
   completedBooksNumber: number = 0;
-
+  
   completedJourney$: Observable<Theme[]> | null = of([]);
   journeyCompleted: boolean = false;
   
@@ -33,8 +32,14 @@ export class AccountComponent {
   }
   
   ngOnInit(): void {
-    
     this.user$ = this.store.select(selectUserFeature);
+    this.user$.subscribe((state) => {
+      this.user = state
+      
+      console.log("USER ", state)
+      console.log("USERNAME ", this.user.username)
+    })
+    
     this.completedJourney$ = this.store.select(selectCompletedThemesList)
     this.completedBook$ = this.store.select(selectCompletedBooksList);
     
@@ -46,15 +51,8 @@ export class AccountComponent {
       this.currentJourney=state
     })
     
-    this.user$.subscribe(user => {
-      this.user=user;
-      this.username=user.username;
-      this.password=user.password;
-      console.log("username is ", user)
-      console.log("username is ", this.username)
-    })
   }
-
+  
   completeBook(book: Book) {
     this.store.dispatch(completeBook({book}))
     
@@ -71,4 +69,10 @@ export class AccountComponent {
     
     this.store.dispatch(completeTheme({theme}))
   }
+
+
+  // LogOut() {
+  //   this.store.dispatch(Logout());
+  //   console.log("out ", this.user?.id)
+  // }
 }

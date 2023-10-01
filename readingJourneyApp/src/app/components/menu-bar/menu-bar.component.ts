@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-bar.component.scss']
 })
 export class MenuBarComponent {
+  @Output() logoutEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  logOut() {
+    this.logoutEvent.emit();
+  }
 
 }

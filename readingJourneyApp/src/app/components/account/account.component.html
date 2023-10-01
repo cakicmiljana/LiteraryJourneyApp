@@ -1,15 +1,11 @@
-<div class="account-div">
-    <button routerLink="/login"></button>
+<div class="account-div" *ngIf="user$ | async">
 
-    <div class="account-info-div">
+    <div class="account-info-div" *ngIf="user">
         <h2>PERSONAL INFORMATION</h2>
-        <h3 *ngIf="user$ | async as user">Username: {{ username }}</h3>
-        <h3 *ngIf="user$ | async as user">Country/Region: {{ country }}</h3>
+        <h3>Username: {{ user.username }}</h3>
+        <h3>Country/Region: {{ user.country }}</h3>
         <button routerLink="/account/update">Update Account Information</button>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br>
         <div>
             <h2>COMPLETED JOURNEYS </h2>
             <div *ngFor="let theme of completedJourney$ | async">
@@ -42,7 +38,7 @@
         
     </ng-template>
 
-    <h2 *ngIf="this.journeyCompleted" routerLink="/" style="margin: 35px;">YOU COMPLETED THIS JOURNEY! CLICK TO FIND NEW THEME.</h2>
+    <h2 *ngIf="this.journeyCompleted" routerLink="/themes" style="margin: 35px;">YOU COMPLETED THIS JOURNEY! CLICK TO FIND NEW THEME.</h2>
     <br>
 </div>
 

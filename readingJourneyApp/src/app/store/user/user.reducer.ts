@@ -25,6 +25,11 @@ export const UserReducer = createReducer(
             }
         }
     }),
+    on(Actions.getUserInfo, (state) => {
+        return {
+            ...state
+        }
+    }),
     on(Actions.completeBook, (state, {book}) => {
         
         return {
@@ -45,9 +50,13 @@ export const UserReducer = createReducer(
         }
     }),
     on(Actions.LoginSuccess, (state, {user}) => {
+        console.log("login success: ",user);
         return {
             ...state,
-            user
+            user: user
         }
+    }),
+    on(Actions.Logout, (state) => {
+        return initialState
     })
 )

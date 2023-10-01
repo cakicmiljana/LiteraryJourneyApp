@@ -26,10 +26,12 @@ export class UsersService {
   }
 
   loginUser(username: string, password: string) {
-    return this.httpClient.get<User>(
+    return this.httpClient.get<User[]>(
       "http://localhost:3000" + '/users' + `?username=${username}&password=${password}`
     ).pipe(
-      map((user) => user)
+      map((users) => {
+        return users[0]
+      })
     )
   }
 }
