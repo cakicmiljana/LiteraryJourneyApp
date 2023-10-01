@@ -16,9 +16,9 @@ import { UsersService } from '../../services/users.service';
 export class AccountUpdateComponent {
   user:Observable<User> = of();
   id: number=-1;
-  username: FormControl = new FormControl;
-  country: FormControl = new FormControl;
-  password: FormControl = new FormControl;
+  username = "";
+  country = "";
+  password = "";
   
   constructor(private service: UsersService, private store: Store<AppState>, private cdr: ChangeDetectorRef) {
 
@@ -28,16 +28,16 @@ export class AccountUpdateComponent {
     this.user = this.store.select(selectUserFeature);
     this.user.subscribe(user => {
       this.id = user.id;
-      this.username = new FormControl<string>(user.username);
-      this.country = new FormControl(user.country);
-      this.password = new FormControl(user.password);
+      this.username = user.username;
+      this.country = user.country;
+      this.password = user.password;
     })
   }
 
   saveAccountInfo() {
-    this.store.dispatch(updateUserInfo({username: this.username.value, 
-      password: this.password.value,
-      country: this.country.value}))
+    this.store.dispatch(updateUserInfo({username: this.username, 
+      password: this.password,
+      country: this.country}))
 
       this.cdr.detectChanges();
       this.service.saveUser(this.id);

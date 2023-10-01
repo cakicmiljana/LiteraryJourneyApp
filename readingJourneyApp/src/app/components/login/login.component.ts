@@ -14,8 +14,8 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  username: FormControl = new FormControl;
-  password: FormControl = new FormControl;
+  username = "";
+  password = "";
   user: Observable<User> | null = null;
 
   constructor(private store: Store<AppState>, service: UsersService) {
@@ -23,9 +23,7 @@ export class LoginComponent {
   }
 
   
-  ngOnInit() : void {
-    this.username = new FormControl<string>('');
-    this.password = new FormControl('');
+  ngOnInit() : void {;
     
     this.user = this.store.select(selectUserFeature);
     this.user.subscribe(user => {
@@ -34,6 +32,6 @@ export class LoginComponent {
 
   Login() {
     
-    this.store.dispatch(Login({username: this.username.value, password: this.password.value}))
+    this.store.dispatch(Login({username: this.username, password: this.password}))
   }
 }

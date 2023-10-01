@@ -27,9 +27,9 @@ export const completedThemesInitialState : CompletedThemesState = CompletedTheme
 export const initialState: UserState = {
     user: {
         id: -1,
-        username: "",
-        password: "",
-        country: ""
+        username: "unknown",
+        password: "unknown",
+        country: "unknown"
     },
     currentTheme: {
         id: -1,

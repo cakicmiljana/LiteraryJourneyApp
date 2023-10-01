@@ -7,6 +7,7 @@ import { User } from 'src/app/models/user';
 // export const loginUserSuccess = createAction('Login User Success', props<{user: User}>);
 export const startJourney = createAction('Start Journey', props<{theme: Theme}>());
 export const updateUserInfo = createAction('Update User Info', props<{username: string, password: string, country: string}>());
+export const getUserInfo = createAction('Get User Info');
 export const completeBook = createAction('Complete Book', props<{book: Book}>());
 export const completeTheme = createAction('Complete Theme', props<{theme: Theme}>());
 export const Login = createAction('Login', props<{username: string, password: string}>());

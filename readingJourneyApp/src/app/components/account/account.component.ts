@@ -15,8 +15,9 @@ import { completeBook, completeTheme } from 'src/app/store/user/user.action';
   styleUrls: ['./account.component.scss']
 })
 export class AccountComponent {
-  user: Observable<User> = of();
-  username: string = '';
+  user$: Observable<User> = of();
+  user: User | null = null;
+  username: string = "";
   password: string = '';
   country: string = '';
 
@@ -26,17 +27,17 @@ export class AccountComponent {
 
   completedJourney$: Observable<Theme[]> | null = of([]);
   journeyCompleted: boolean = false;
-
+  
   constructor(private ThemesService: ThemesService, private store: Store<AppState>) {
     
   }
   
   ngOnInit(): void {
     
-    this.user = this.store.select(selectUserFeature);
+    this.user$ = this.store.select(selectUserFeature);
     this.completedJourney$ = this.store.select(selectCompletedThemesList)
     this.completedBook$ = this.store.select(selectCompletedBooksList);
-
+    
     this.completedBook$.subscribe((state) => {
       this.completedBooksNumber = state.length
     })
@@ -44,17 +45,19 @@ export class AccountComponent {
     this.store.select(selectCurrentThemeFeature).subscribe((state) => {
       this.currentJourney=state
     })
-
-    this.user.subscribe(user => {
-      this.username = user.username;
-      this.password = user.password;
-      this.country = user.country;
+    
+    this.user$.subscribe(user => {
+      this.user=user;
+      this.username=user.username;
+      this.password=user.password;
+      console.log("username is ", user)
+      console.log("username is ", this.username)
     })
   }
 
   completeBook(book: Book) {
     this.store.dispatch(completeBook({book}))
-
+    
     if(this.currentJourney && this.completedBooksNumber === this.currentJourney.books.length) {
       this.journeyCompleted = true;
 

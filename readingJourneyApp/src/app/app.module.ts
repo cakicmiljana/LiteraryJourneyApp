@@ -23,6 +23,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ThemesEffects } from './store/themes/themes.effects';
 import { LoginComponent } from './components/login/login.component';
 import { UserEffects } from './store/user/user.effects';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { UserEffects } from './store/user/user.effects';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     EffectsModule.forRoot([ThemesEffects, UserEffects]),
     StoreModule.forRoot<AppState>({themes: ThemesReducer, user: UserReducer }),
     StoreDevtoolsModule.instrument({

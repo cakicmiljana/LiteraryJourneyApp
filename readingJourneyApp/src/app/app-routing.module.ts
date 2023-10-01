@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router'; // CLI imports router
-import { AppComponent } from './app.component';
-import { BookComponent } from './components/book/book.component';
+import { Routes, RouterModule, Router } from '@angular/router';
 import { ThemesComponent } from './components/themes/themes.component';
 import { AccountComponent } from './components/account/account.component';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';

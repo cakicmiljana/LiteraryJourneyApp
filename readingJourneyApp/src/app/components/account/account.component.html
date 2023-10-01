@@ -1,8 +1,10 @@
 <div class="account-div">
+    <button routerLink="/login"></button>
+
     <div class="account-info-div">
         <h2>PERSONAL INFORMATION</h2>
-        <h3>Username: {{username}}</h3>
-        <h3>Country/Region: {{country}}</h3>
+        <h3 *ngIf="user$ | async as user">Username: {{ username }}</h3>
+        <h3 *ngIf="user$ | async as user">Country/Region: {{ country }}</h3>
         <button routerLink="/account/update">Update Account Information</button>
         <br>
         <br>
