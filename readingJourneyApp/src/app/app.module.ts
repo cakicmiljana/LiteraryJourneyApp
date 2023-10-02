@@ -24,6 +24,7 @@ import { ThemesEffects } from './store/themes/themes.effects';
 import { LoginComponent } from './components/login/login.component';
 import { UserEffects } from './store/user/user.effects';
 import { FormsModule } from '@angular/forms';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     AccountUpdateComponent,
     CurrentThemeComponent,
     ThemeComponent,
-    LoginComponent
+    LoginComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

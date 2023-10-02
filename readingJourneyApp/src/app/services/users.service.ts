@@ -34,4 +34,9 @@ export class UsersService {
       })
     )
   }
+
+  signUpUser(user: User) {
+    return this.httpClient.post<User>(
+      "http://localhost:3000/users", user)
+  }
 }

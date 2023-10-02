@@ -6,4 +6,5 @@ export interface Theme {
     description?: string;
     imagePath?: string;
     books: Book[];
+    rating?: number;
 }

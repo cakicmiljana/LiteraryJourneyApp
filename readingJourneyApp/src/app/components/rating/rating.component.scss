@@ -1,0 +1,19 @@
+.stars-div {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    position: relative;
+    right: 40%;
+}
+
+.star {
+    font-size: 40px; /* Adjust the font size to make stars bigger */
+    color: gray; /* Set the default star color */
+    cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+    transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: yellow; /* Change the color to yellow on hover and for previous stars */
+}

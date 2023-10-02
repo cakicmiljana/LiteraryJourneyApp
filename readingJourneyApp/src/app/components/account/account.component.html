@@ -38,7 +38,11 @@
         
     </ng-template>
 
-    <h2 *ngIf="this.journeyCompleted" routerLink="/themes" style="margin: 35px;">YOU COMPLETED THIS JOURNEY! CLICK TO FIND NEW THEME.</h2>
+    <div *ngIf="this.journeyCompleted" style="margin: 35px;">
+        <h2>You completed this journey! Before you leave, give it a rating.</h2>
+        <app-rating [rating]="userRating" (selectedRating)="onRatingSelected($event)">
+        </app-rating>
+    </div>
     <br>
 </div>
 

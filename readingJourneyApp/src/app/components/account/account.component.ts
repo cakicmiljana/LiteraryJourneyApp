@@ -8,6 +8,7 @@ import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
 import { selectCompletedBooksFeature, selectCompletedBooksList, selectCompletedThemesFeature, selectCompletedThemesList, selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
 import { Logout, completeBook, completeTheme } from 'src/app/store/user/user.action';
+import { RateJourney } from 'src/app/store/themes/themes.action';
 
 @Component({
   selector: 'app-account',
@@ -26,6 +27,9 @@ export class AccountComponent {
   
   completedJourney$: Observable<Theme[]> | null = of([]);
   journeyCompleted: boolean = false;
+
+  journeyId: number = -1;
+  userRating: number = 0;
   
   constructor(private ThemesService: ThemesService, private store: Store<AppState>) {
     
@@ -57,8 +61,9 @@ export class AccountComponent {
     this.store.dispatch(completeBook({book}))
     
     if(this.currentJourney && this.completedBooksNumber === this.currentJourney.books.length) {
-      this.journeyCompleted = true;
+      this.journeyId=this.currentJourney.id;
 
+      this.journeyCompleted = true;
       this.completeJourney(this.currentJourney);
 
       this.currentJourney=null;
@@ -66,13 +71,11 @@ export class AccountComponent {
   }
 
   completeJourney(theme: Theme) {
-    
     this.store.dispatch(completeTheme({theme}))
   }
 
-
-  // LogOut() {
-  //   this.store.dispatch(Logout());
-  //   console.log("out ", this.user?.id)
-  // }
+  onRatingSelected(rating: number) {
+    this.userRating=rating;
+    this.store.dispatch(RateJourney({journeyId: this.journeyId, rating}))
+  }
 }
