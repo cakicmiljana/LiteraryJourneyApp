@@ -1,0 +1,22 @@
+<div class="signup-div">
+
+    <h2>Sign Up</h2>
+    <form>
+        <label>Username </label>
+        <input [(ngModel)]="username" name="username"/> 
+    </form>
+    <br><br>
+    <form>
+        <label>Country </label>
+        <input type="country" [(ngModel)]="country" name="country"/>
+    </form>
+    <br><br>
+    <form>
+        <label>Password </label>
+        <input type="password" [(ngModel)]="password" name="password"/>
+    </form>
+    
+    <br>
+    
+    <button (click)="Signup()">Sign Up</button>
+</div>

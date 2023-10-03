@@ -13,3 +13,6 @@ export const completeTheme = createAction('Complete Theme', props<{theme: Theme}
 export const Login = createAction('Login', props<{username: string, password: string}>());
 export const LoginSuccess = createAction('Login Success', props<{user: User}>());
 export const Logout = createAction('Logout');
+export const Signup = createAction('Signup', props<{username: string, password: string, country: string}>());
+export const SignupSuccess = createAction('Signup Success', props<{user: User}>());
+export const DeleteAccount = createAction('Delete Account', props<{user: User}>());

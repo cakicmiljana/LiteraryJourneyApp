@@ -7,11 +7,13 @@ import { AccountComponent } from './components/account/account.component';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   { path: 'menu', component: MenuBarComponent },
   { path: 'themes', component: ThemesComponent },
   { path: 'account', component: AccountComponent},
+  { path: 'signup', component: SignupComponent},
   { path: 'account/update', component: AccountUpdateComponent }
 ];
 
