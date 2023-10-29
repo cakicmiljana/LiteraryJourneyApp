@@ -1,10 +1,30 @@
 <div class="menu-bar">
   <nav>
     <ul>
-      <li><a routerLink="/themes">Start Your Journey</a></li>
-      <li><a routerLink="/account">Account</a></li>
-      <li><a routerLink="/signup">Sign Up</a></li>
-      <li><a (click)="logOut()">Log Out</a></li>
+      <li><a routerLink="/themes">
+        <button mat-raised-button color="accent">
+          Browse All Journeys
+          <mat-icon color="wheat">home</mat-icon>
+        </button>
+      </a></li>
+      <li><a routerLink="/account">
+        <button mat-raised-button color="accent">
+          Account
+          <mat-icon>account_box</mat-icon>
+        </button>
+      </a></li>
+      <li><a routerLink="/signup">
+        <button mat-raised-button color="accent">
+          Sign Up    
+          <mat-icon>login</mat-icon>
+        </button>
+      </a></li>
+      <li><a (click)="logOut()">
+        <button mat-raised-button color="accent">
+          Log Out
+          <mat-icon>logout</mat-icon>
+        </button>
+      </a></li>
     </ul>
   </nav>
 </div>

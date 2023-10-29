@@ -6,15 +6,17 @@
     <div class="login-div">
 
         <h2>Log In</h2>
-        <form>
-            <label>Username </label>
-            <input [(ngModel)]="username" name="username"/> 
-        </form>
-        <br><br>
-        <form>
+        <p>
+            <mat-form-field class="mat-warn" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Enter your username here" [(ngModel)]="username" name="username"/> 
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+        </p>
+        <mat-form-field class="mat-warn">
             <label>Password </label>
             <input type="password" [(ngModel)]="password" name="password"/>
-        </form>
+        </mat-form-field>
         
         <br>
         

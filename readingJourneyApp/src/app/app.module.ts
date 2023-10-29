@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccountComponent } from './components/account/account.component';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ThemesReducer } from './store/themes/themes.reducer';
 import { CurrentThemeComponent } from './components/current-theme/current-theme.component';
 import { AppState } from './app.state';
@@ -26,6 +25,13 @@ import { UserEffects } from './store/user/user.effects';
 import { FormsModule } from '@angular/forms';
 import { RatingComponent } from './components/rating/rating.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,13 @@ import { SignupComponent } from './components/signup/signup.component';
       traceLimit: 75,
     }),
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule
   ],
   bootstrap: [AppComponent]
 })
