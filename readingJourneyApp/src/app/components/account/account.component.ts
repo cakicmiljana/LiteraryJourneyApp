@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { ThemesService } from 'src/app/services/themes.service';
 import { Observable, of } from 'rxjs';
 import { Book } from 'src/app/models/book';
+import { Review } from 'src/app/models/review';
 import { AppState } from 'src/app/app.state';
 import { Store } from '@ngrx/store'
 import { selectCompletedBooksFeature, selectCompletedBooksList, selectCompletedThemesFeature, selectCompletedThemesList, selectCurrentThemeFeature, selectUserFeature } from 'src/app/store/user/user.selector';
@@ -18,7 +19,7 @@ import { RateJourney } from 'src/app/store/themes/themes.action';
 export class AccountComponent {
   user$: Observable<User> = of();
   user: User | null | undefined;
-  username: string = "";
+  username: string = '';
   country: string = '';
 
   currentJourney: Theme | null = null;
@@ -66,7 +67,7 @@ export class AccountComponent {
       this.journeyCompleted = true;
       this.completeJourney(this.currentJourney);
 
-      this.currentJourney=null;
+      this.currentJourney=null; 
     }
   }
 
@@ -75,7 +76,9 @@ export class AccountComponent {
   }
 
   onRatingSelected(rating: number) {
-    this.userRating=rating;
-    this.store.dispatch(RateJourney({journeyId: this.journeyId, rating}))
+    if(this.user) {
+      this.userRating=rating;
+      this.store.dispatch(RateJourney({userId: this.user?.id, journeyId: this.journeyId, rating, comment: 'I left a comment'}))
+    }
   }
 }

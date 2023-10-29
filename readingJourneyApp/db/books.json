@@ -228,6 +228,58 @@
           "coverPath": "../../../assets/coraline.jpg"
         }
       ]
+    },
+    {
+      "id": 5,
+      "title": "Children's Literature",
+      "description": "Existential literature, typically characterized by an individual who exists in a chaotic and seemingly meaningless environment, forces the protagonist to confront his/herself and determine his/her purpose in the world.",
+      "imagePath": "../../../assets/childrens.jpg",
+      "books": [
+        {
+          "id": 14,
+          "title": "Harry Potter and the Philosopher's Stone",
+          "author": "J.K. Rowling",
+          "externalLink": "https://www.amazon.com/s?k=harry+potter+and+the+philosopher%27s+stone",
+          "coverPath": "../../../assets/potter.jpg"
+        },
+        {
+          "id": 15,
+          "title": "Peter Pan",
+          "author": "J. M. Barrie",
+          "externalLink": "https://www.amazon.com/s?k=peter+pan",
+          "coverPath": "../../../assets/peterpan.jpg"
+        },
+        {
+          "id": 16,
+          "title": "Little Women",
+          "author": "Louisa May Alcott",
+          "externalLink": "https://www.amazon.com/s?k=little+women",
+          "coverPath": "../../../assets/littlewomen.jpg"
+        },
+        {
+          "id": 17,
+          "title": "Alice In Wonderland",
+          "author": "Lewis Carroll",
+          "externalLink": "https://www.amazon.com/s?k=alice+in+wonderland+book",
+          "coverPath": "../../../assets/alice.jpg"
+        },
+        {
+          "id": 18,
+          "title": "Coraline",
+          "author": "Neil Gaiman",
+          "externalLink": "https://www.amazon.com/s?k=coraline",
+          "coverPath": "../../../assets/coraline.jpg"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "userId": 2,
+      "themeId": 0,
+      "rating": 4,
+      "comment": "I left a comment",
+      "id": 1
     }
   ]
 }
