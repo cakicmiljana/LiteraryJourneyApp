@@ -1,10 +1,10 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-$readingDiaryApp-primary: mat.define-palette(mat.$deep-orange-palette, 200);
-$readingDiaryApp-accent: mat.define-palette(mat.$red-palette, 100);
+$readingDiaryApp-primary: mat.define-palette(mat.$red-palette, 100);
+$readingDiaryApp-accent: mat.define-palette(mat.$red-palette, 900);
 
-$readingDiaryApp-warn: mat.define-palette(mat.$red-palette, 900);
+$readingDiaryApp-warn: mat.define-palette(mat.$red-palette, 200);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".

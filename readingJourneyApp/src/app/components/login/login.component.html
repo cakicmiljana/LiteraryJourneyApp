@@ -1,26 +1,21 @@
 <ng-component *ngIf="!userLoggedIn;then logIn; else loggedIn">
-
-</ng-component  >
+</ng-component>
 
 <ng-template #logIn>
     <div class="login-div">
-
         <h2>Log In</h2>
-        <p>
-            <mat-form-field class="mat-warn" appearance="fill">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Enter your username here" [(ngModel)]="username" name="username"/> 
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            </mat-form-field>
-        </p>
-        <mat-form-field class="mat-warn">
-            <label>Password </label>
-            <input type="password" [(ngModel)]="password" name="password"/>
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter your username here" [(ngModel)]="username" name="username"/>
         </mat-form-field>
-        
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter your password here" type="password" [(ngModel)]="password" name="password"/>
+        </mat-form-field>
         <br>
-        
-        <button (click)="Login()">Log In</button>
+        <button mat-raised-button color="accent" (click)="Login()">
+            <mat-icon>login</mat-icon> Log In
+        </button>
     </div>
 </ng-template>
 
