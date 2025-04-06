@@ -1,3 +1,4 @@
+import { SafeUrl } from "@angular/platform-browser";
 import { Theme } from "./theme";
 
 export interface Book {

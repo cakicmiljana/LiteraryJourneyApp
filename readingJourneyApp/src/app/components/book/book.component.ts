@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { AppState } from 'src/app/app.state';
 import { Book } from 'src/app/models/book';
 import { selectCompletedBooksFeature } from 'src/app/store/user/user.selector';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book',
@@ -17,8 +18,9 @@ export class BookComponent {
   
   isBiographyOn: boolean = false;
   
-  constructor(private store: Store<AppState>) {
-    
+  constructor(private store: Store<AppState>, private sanitizer: DomSanitizer) {
+    if(this.book)
+      this.book.externalLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.book.externalLink) as string
   }
 
   ngOnInit(): void {

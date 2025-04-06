@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';``
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
@@ -9,25 +9,25 @@ import { map } from 'rxjs/operators';
 })
 export class UsersService {
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
 
   }
 
   getAllUsers() {
-    return this.httpClient.get<User[]>("http://localhost:3000/users")
+    return this.httpClient.get<User[]>(environment.api + "/users")
   }
 
   getUserById(id: number) {
-    return this.httpClient.get<User>(`http://localhost:3000/users/${id}`)
+    return this.httpClient.get<User>(environment.api + `/users/${id}`)
   }
 
   saveUser(userId: number) {
-    return this.httpClient.post("http://localhost:3000/users/" + userId, {});
+    return this.httpClient.post(environment.api + "/users/" + userId, {});
   }
 
   loginUser(username: string, password: string) {
     return this.httpClient.get<User[]>(
-      "http://localhost:3000" + '/users' + `?username=${username}&password=${password}`
+      environment.api + '/users' + `?username=${username}&password=${password}`
     ).pipe(
       map((users) => {
         return users[0]
@@ -37,6 +37,6 @@ export class UsersService {
 
   signUpUser(user: User) {
     return this.httpClient.post<User>(
-      "http://localhost:3000/users", user)
+      environment.api + "/users", user)
   }
 }

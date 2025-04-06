@@ -15,21 +15,21 @@ export class ThemesService {
   }
 
   getAllThemes() {
-    return this.httpClient.get<Theme[]>("http://localhost:3000/themes")
+    return this.httpClient.get<Theme[]>(environment.api + "/themes")
     
   }
 
   getThemeById(id: number) {
-    return this.httpClient.get<Theme>(`http://localhost:3000/themes/${id}`)
+    return this.httpClient.get<Theme>(environment.api + `/themes/${id}`)
     
   }
 
   getAllReviews(themeid: number) {
-    return this.httpClient.get<Review[]>(`http://localhost:3000/reviews?themeId=${themeid}`)
+    return this.httpClient.get<Review[]>(environment.api + `/reviews?themeId=${themeid}`)
   }
 
   addNewReview(review: Review) {
     return this.httpClient.post<Review>(
-      "http://localhost:3000/reviews", review)
+      environment.api + "/reviews", review)
   }
 }

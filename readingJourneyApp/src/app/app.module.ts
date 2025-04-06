@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ThemeComponent,
     LoginComponent,
     RatingComponent,
-    SignupComponent
+    SignupComponent,
+    LoginSignupComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,6 @@ export class BooksService {
   }
 
   getAll() {
-    return this.httpClient.get<Book[]>("http://localhost:3000/books")
-    
+    return this.httpClient.get<Book[]>(environment.api + "/books")
   }
 }
