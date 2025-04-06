@@ -34,6 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { RecommendationComponent } from './components/recommendation/recommendation.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
     LoginComponent,
     RatingComponent,
     SignupComponent,
-    LoginSignupComponent
+    LoginSignupComponent,
+    RecommendationComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
