@@ -44,7 +44,9 @@ export const UserReducer = createReducer(
             currentTheme: {
                 id: -1,
                 title: '',
-                books: []
+                books: [],
+                genres: [],
+                reviews: []
             },
             completedThemes: CompletedThemesAdapter.addOne(theme, state.completedThemes)
         }

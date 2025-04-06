@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "readingDiaryApp:build:production"
+              "buildTarget": "readingDiaryApp:build:production"
             },
             "development": {
-              "browserTarget": "readingDiaryApp:build:development"
+              "buildTarget": "readingDiaryApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "readingDiaryApp:build"
+            "buildTarget": "readingDiaryApp:build"
           }
         },
         "test": {
