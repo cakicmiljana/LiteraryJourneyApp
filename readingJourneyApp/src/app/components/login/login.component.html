@@ -1,4 +1,4 @@
-<ng-component *ngIf="!userLoggedIn;then logIn; else loggedIn">
+<ng-component *ngIf="userLoggedIn; then loggedIn; else logIn">
 </ng-component>
 
 <ng-template #logIn>

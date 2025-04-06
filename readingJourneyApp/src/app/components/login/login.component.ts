@@ -20,7 +20,7 @@ export class LoginComponent {
   userLoggedIn: boolean = false;
   user: User | undefined;
 
-  constructor(private store: Store<AppState>, service: UsersService, private router: Router) {
+  constructor(private store: Store<AppState>, private router: Router) {
 
   }
 
@@ -48,7 +48,7 @@ export class LoginComponent {
   }
 
   handleLogout() {
-    this.userLoggedIn=false;
+    this.userLoggedIn=false; // uraditi ovo nakon zavrsetka logouta?
     
     this.store.dispatch(Logout());
     console.log("out ", this.user?.id)
