@@ -36,6 +36,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatToolbarModule
+    MatToolbarModule,
+    NgxChartsModule
   ],
   bootstrap: [AppComponent]
 })
