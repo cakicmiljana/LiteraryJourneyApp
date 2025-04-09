@@ -16,7 +16,7 @@ export class ThemesComponent {
   theme$: Observable<Theme[]> = of([]);
   
 
-  constructor(private store: Store<AppState>, private ThemesService: ThemesService) {
+  constructor(private store: Store<AppState>) {
 
   }
 

@@ -18,7 +18,7 @@ export class ThemeComponent {
   @Output() isDropdownOpen: boolean = false;
   ratingArray: Array<number> = [];
   
-  constructor(private store: Store<AppState>, private ThemesService: ThemesService) {
+  constructor(private store: Store<AppState>) {
     this.ratingArray=new Array(this.theme?.rating);
 
   }

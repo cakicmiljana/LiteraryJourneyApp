@@ -1,0 +1,11 @@
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    padding: 20px 0;
+}
+
+.book-div {
+    flex: 0 0 auto;
+}

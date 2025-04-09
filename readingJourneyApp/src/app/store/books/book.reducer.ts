@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import * as Actions from './book.action'
-import { Book } from "../models/book"
+import { adapter, initialState } from "./book.state"
 
 // export interface AppState {
 //     books: Book[],
@@ -12,12 +12,15 @@ import { Book } from "../models/book"
 //     selectedBook: 0,
 // }
 
-export const booksReducer = createReducer(
-    //initialState,
+export const BooksReducer = createReducer(
+    initialState,
     on(Actions.selectBook, (state, {bookID}) => {
         return {
-            //...state,
+            ...state,
             selectedBook: bookID
         }
-    })
+    }),
+    on(Actions.loadBooksSuccess, (state, {books}) =>
+        adapter.setAll(books, state)
+    )
 )

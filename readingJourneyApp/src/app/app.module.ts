@@ -37,6 +37,9 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { RecommendationComponent } from './components/recommendation/recommendation.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AllBooksComponent } from './components/all-books/all-books.component';
+import { BooksReducer } from './store/books/book.reducer';
+import { BooksEffects } from './store/books/book.effects';
 
 @NgModule({
   declarations: [
@@ -54,15 +57,16 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     SignupComponent,
     LoginSignupComponent,
     RecommendationComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    AllBooksComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    EffectsModule.forRoot([ThemesEffects, UserEffects]),
-    StoreModule.forRoot<AppState>({themes: ThemesReducer, user: UserReducer }),
+    EffectsModule.forRoot([BooksEffects, ThemesEffects, UserEffects]),
+    StoreModule.forRoot<AppState>({books: BooksReducer, themes: ThemesReducer, user: UserReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       autoPause: true,

@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { AllBooksComponent } from './components/all-books/all-books.component';
 
 const routes: Routes = [
   { path: 'menu', component: MenuBarComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'account/update', component: AccountUpdateComponent },
-  { path: 'statistics', component: StatisticsComponent }
+  { path: 'statistics', component: StatisticsComponent },
+  { path: 'books', component: AllBooksComponent }
 ];
 
 // configures NgModule imports and exports

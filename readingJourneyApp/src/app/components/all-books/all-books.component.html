@@ -1,0 +1,6 @@
+<h2>All Books:</h2>
+<div class="book-list">
+  <div class="book-div" *ngFor="let book of book$ | async">
+    <app-book [book]="book"></app-book>
+  </div>
+</div>

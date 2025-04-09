@@ -12,7 +12,7 @@ export class BooksService {
 
   }
 
-  getAll() {
+  getAllBooks() {
     return this.httpClient.get<Book[]>(environment.api + "/books")
   }
 }
