@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'account/update', component: AccountUpdateComponent },
   { path: 'statistics', component: StatisticsComponent },
   { path: 'books', component: AllBooksComponent },
-  { path: 'book-data', component: BookDataComponent }
+  { path: 'book-data/:id', component: BookDataComponent }
 ];
 
 // configures NgModule imports and exports

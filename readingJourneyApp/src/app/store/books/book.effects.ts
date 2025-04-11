@@ -14,7 +14,7 @@ export class BooksEffects {
     loadBook$ = createEffect(() => 
         this.action$.pipe(
             ofType(BooksActions.loadBooks),tap((books) => console.log('Fetched books:', books)),
-            mergeMap(() => 
+            mergeMap(() =>  
                 this.booksService.getAllBooks().pipe(
                     tap((books) => console.log('Fetched books:', books)),
                     map((books) => 

@@ -13,7 +13,7 @@
 
         </ng-container>
         {{ book.author }}</h4>
-    <a routerLink="../book-data" target="_blank">
+    <a routerLink="../book-data/:{{[book.id]}}" >
         <button mat-stroked-button>View Book</button>
     </a>
 </div>
