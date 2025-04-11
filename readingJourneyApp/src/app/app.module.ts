@@ -40,6 +40,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BooksReducer } from './store/books/book.reducer';
 import { BooksEffects } from './store/books/book.effects';
+import { BookDataComponent } from './components/book-data/book-data.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BooksEffects } from './store/books/book.effects';
     LoginSignupComponent,
     RecommendationComponent,
     StatisticsComponent,
-    AllBooksComponent
+    AllBooksComponent,
+    BookDataComponent
   ],
   imports: [
     BrowserModule,

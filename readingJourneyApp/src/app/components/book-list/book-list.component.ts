@@ -17,9 +17,9 @@ export class BookListComponent {
   @Output() isBiographyOn: boolean = false;
   
   constructor(private BooksService: BooksService, private sanitizer: DomSanitizer) {
-    this.books?.map(book => {
-      this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink)
-    })
+    // this.books?.map(book => {
+    //   this.sanitizer.bypassSecurityTrustResourceUrl(book.externalLink)
+    // })
   }
 
   booksDropdown(event: Event) {

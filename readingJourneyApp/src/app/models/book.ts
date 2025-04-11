@@ -1,14 +1,16 @@
 import { SafeUrl } from "@angular/platform-browser";
 import { Theme } from "./theme";
+import { BookData } from "./book-data";
 
 export interface Book {
     id: string;
     title: string;
     author: string;
-    pages: number;
-    language: string;
-    description: string;
-    externalLink: string;
+    datails: BookData;
     coverPath: string;
-    genres: string[];
+    // pages: number;
+    // description: string;
+    // externalLink: string;
+    // genres: string[];
+    // language: string;
 }

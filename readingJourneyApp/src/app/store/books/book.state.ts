@@ -3,7 +3,7 @@ import { Book } from "src/app/models/book";
 
 
 export interface BooksState extends EntityState<Book>{
-
+    
 }
 
 export const adapter = createEntityAdapter<Book>();

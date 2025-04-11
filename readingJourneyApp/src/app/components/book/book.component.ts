@@ -19,8 +19,8 @@ export class BookComponent {
   isBiographyOn: boolean = false;
   
   constructor(private store: Store<AppState>, private sanitizer: DomSanitizer) {
-    if(this.book)
-      this.book.externalLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.book.externalLink) as string
+    // if(this.book)
+    //   this.book.externalLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.book.externalLink) as string
   }
 
   ngOnInit(): void {

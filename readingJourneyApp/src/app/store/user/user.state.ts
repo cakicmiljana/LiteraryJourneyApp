@@ -3,11 +3,17 @@ import { Book } from "src/app/models/book";
 import { Theme } from "src/app/models/theme";
 import { User } from "src/app/models/user";
 
-export interface UserBooksState extends EntityState<Book> {
+export interface ReadBooksState extends EntityState<Book> {
     
 }
 
 export const booksAdapter=createEntityAdapter<Book>();
+
+export interface CurrentBooksState extends EntityState<Book> {
+    
+}
+
+export const currentBooksAdapter=createEntityAdapter<Book>();
 
 export interface CompletedThemesState extends EntityState<Theme> {
     
@@ -18,12 +24,13 @@ export const CompletedThemesAdapter=createEntityAdapter<Theme>();
 export interface UserState {
     user: User,
     currentTheme: Theme,
-    completedBooks: UserBooksState,
+    currentBooks: CurrentBooksState,
+    completedBooks: ReadBooksState,
     completedThemes: CompletedThemesState
     //createdThemeId: string ???
 }
 
-export const booksInitialState : UserBooksState = booksAdapter.getInitialState();
+export const booksInitialState : ReadBooksState = booksAdapter.getInitialState();
 export const completedThemesInitialState : CompletedThemesState = CompletedThemesAdapter.getInitialState();
 export const initialState: UserState = {
     user: {
@@ -49,6 +56,7 @@ export const initialState: UserState = {
         genres: [],
         reviews: []
     },
+    currentBooks: booksInitialState,
     completedBooks: booksInitialState,
     completedThemes: completedThemesInitialState
 }
