@@ -1,13 +1,13 @@
 <div class="theme-dropdown-div" style="background-image: url({{theme?.imagePath}}); background-size: cover;">
     <div class="theme-info-div">
-        <h2 (click)="themeDropdown($event)">{{theme?.title}}</h2>
-        <div *ngIf="isDropdownOpen">
+        <h2 class="theme-title" (click)="themeDropdown($event)">{{theme?.title}}</h2>
+        <div *ngIf="isDropdownOpen" class="theme-items">
 
             <label> {{theme?.description}}</label>
-            <div class="stars-div" *ngFor="let start of ratingArray">
+            <!-- <div class="stars-div" *ngFor="let start of ratingArray">
                 <div class="star">&#9733;</div>
-            </div>
-            <button mat-raised-button color="primary" *ngIf="isDropdownOpen && theme" (click)="startJourney(theme)">START JOURNEY NOW</button>
+            </div> -->
+            <button mat-stroked-button class="start-button" *ngIf="isDropdownOpen && theme" (click)="startJourney(theme)">START JOURNEY NOW</button>
         </div>
     </div>
     <div class="books-div">
