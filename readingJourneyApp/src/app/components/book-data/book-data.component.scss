@@ -1,0 +1,43 @@
+
+h2, h3, h4, div {  
+    font-weight: 200;
+}
+
+.book-item {
+    padding-top: 30px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    font-weight: normal;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
+
+.details-item {
+    margin-right: 30px;
+}
+
+.title {
+    padding-left: 30px;
+}
+
+.array-details {
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+}
+
+.h4-class {  
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.description {
+    font-style: italic;
+}

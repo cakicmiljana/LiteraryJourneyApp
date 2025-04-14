@@ -10,8 +10,9 @@ h3, h4, h5 {
     margin: 0;
     padding-bottom: 5px;
     padding-top: 5px;
-    color: wheat;
+    // color: wheat;
     text-shadow: black 1px 1px 10px;
+    font-weight: 500;
 }
 
 .book-item-div {
@@ -30,7 +31,7 @@ h3, h4, h5 {
 .order-button {
     position: absolute;
     bottom: 0;
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -48,5 +49,5 @@ h3, h4, h5 {
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
     align-content: center;
-    color: wheat;
+    // color: wheat;
   }
