@@ -42,6 +42,7 @@ import { BooksReducer } from './store/books/book.reducer';
 import { BooksEffects } from './store/books/book.effects';
 import { BookDataComponent } from './components/book-data/book-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TopicComponent } from './components/topic/topic.component';
 
 // import { MatAccordion } from '@angular/material/expansion';
 
@@ -63,7 +64,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RecommendationComponent,
     StatisticsComponent,
     AllBooksComponent,
-    BookDataComponent
+    BookDataComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,

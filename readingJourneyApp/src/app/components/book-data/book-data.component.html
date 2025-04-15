@@ -65,7 +65,13 @@
             </mat-expansion-panel>
           </mat-accordion>
           
-          
-          
+          <div class="topics">
+
+              <h2>Explore themes:</h2>
+    
+              <div *ngFor="let topic of book?.details?.themes">
+                  <app-topic [topic]="topic"></app-topic>
+              </div>
+          </div>
     </div>
 </div>
