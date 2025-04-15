@@ -3,9 +3,12 @@ h2, h3, h4, div {
     font-weight: 200;
 }
 
+.book-details {
+    padding: 20px;
+}
+
 .book-item {
     padding-top: 30px;
-    padding-left: 10px;
     display: flex;
     flex-direction: row;
     font-weight: normal;
@@ -41,3 +44,56 @@ h2, h3, h4, div {
 .description {
     font-style: italic;
 }
+
+.plot {
+    padding-top: 30px;
+}
+
+.dark-accordion {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    color: #f0f0f0;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .dark-panel {
+    background-color: #2a2a2a;
+    margin-bottom: 8px;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+  }
+  
+  .dark-header {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+  
+  .dark-header.mat-expanded {
+    background-color: #383838;
+  }
+  
+  .dark-content {
+    padding: 16px;
+    font-size: 14px;
+    color: #cccccc;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Optional: Smooth animation */
+  mat-expansion-panel {
+    transition: all 0.3s ease-in-out;
+  }
+
+  img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
+  

@@ -41,6 +41,9 @@ import { AllBooksComponent } from './components/all-books/all-books.component';
 import { BooksReducer } from './store/books/book.reducer';
 import { BooksEffects } from './store/books/book.effects';
 import { BookDataComponent } from './components/book-data/book-data.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// import { MatAccordion } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -84,7 +87,9 @@ import { BookDataComponent } from './components/book-data/book-data.component';
     MatIconModule,
     MatInputModule,
     MatToolbarModule,
-    NgxChartsModule
+    NgxChartsModule,
+    BrowserAnimationsModule
+    // MatAccordion
   ],
   bootstrap: [AppComponent]
 })

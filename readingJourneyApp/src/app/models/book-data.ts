@@ -9,5 +9,6 @@ export interface BookData {
     originalLanguage: string;
     country: string;
     publicationYear: string;
+    plot?: string;
     // editions?
 }

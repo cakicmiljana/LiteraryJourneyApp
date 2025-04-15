@@ -1,49 +1,71 @@
-<div class="book-item">
-    <img src="{{book?.coverPath}}" width="128" height="195"
-    [ngStyle]="{'filter': 'brightness(100%)'}"/>
-    <div>
+<div class="book-details">
+
+    <div class="book-item">
+        <img src="{{book?.coverPath}}" width="128" height="195"
+        [ngStyle]="{'filter': 'brightness(100%)'}"/>
         <div>
-            <h2 class="title">
-                {{book?.title}}
-            </h2>
-            <div class="details">
-                <div class="details-item">
-                    <h3>
-                        {{book?.author}}
-                    </h3>
-                    <h4>
-                        {{book?.details?.pages}} pages
-                    </h4>
-                    <h4>
-                        {{book?.details?.country}}, {{book?.details?.publicationYear}}.
-                    </h4>
-                </div>
-                <div>
-                    <h3 class="description">
-                        {{book?.details?.description}}
-                    </h3>
-                    <div class="array-details">
-                        <h4 class="h4-class" *ngFor="let genre of book?.details?.genres; let last = last">
-                            {{genre}} <span *ngIf="!last">
-                                &nbsp; | &nbsp;
-                            </span>
+            <div>
+                <h2 class="title">
+                    {{book?.title}}
+                </h2>
+                <div class="details">
+                    <div class="details-item">
+                        <h3>
+                            {{book?.author}}
+                        </h3>
+                        <h4>
+                            {{book?.details?.pages}} pages
+                        </h4>
+                        <h4>
+                            {{book?.details?.country}}, {{book?.details?.publicationYear}}.
                         </h4>
                     </div>
-                    <div class="array-details">
-                        <h4 class="h4-class" *ngFor="let genre of book?.details?.themes; let last = last">
-                            {{genre}} <span *ngIf="!last">
-                                &nbsp; | &nbsp;
-                            </span>
-                        </h4>
+                    <div>
+                        <h3 class="description">
+                            {{book?.details?.description}}
+                        </h3>
+                        <div class="array-details">
+                            <h4 class="h4-class" *ngFor="let genre of book?.details?.genres; let last = last">
+                                {{genre}} <span *ngIf="!last">
+                                    &nbsp; | &nbsp;
+                                </span>
+                            </h4>
+                        </div>
+                        <div class="array-details">
+                            <h4 class="h4-class" *ngFor="let genre of book?.details?.themes; let last = last">
+                                {{genre}} <span *ngIf="!last">
+                                    &nbsp; | &nbsp;
+                                </span>
+                            </h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        <!-- <h4>
-            {{book?.details?.country}}
-        </h4> -->
+                </div>
+            <!-- <h4>
+                {{book?.details?.country}}
+            </h4> -->
+        </div>
+    </div>
+    <a href="{{book?.details?.externalLink}}" target="_blank">
+        <button mat-stroked-button>Order Now</button>
+    </a>
+    
+    <div class="plot">
+    
+        <mat-accordion class="dark-accordion">
+            <mat-expansion-panel class="dark-panel">
+              <mat-expansion-panel-header class="dark-header">
+                <mat-panel-title>
+                  PLOT
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="dark-content">
+                {{ book?.details?.plot || 'No plot available' }}
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+          
+          
+          
     </div>
 </div>
-<a href="{{book?.details?.externalLink}}" target="_blank">
-    <button mat-stroked-button>Order Now</button>
-</a>
